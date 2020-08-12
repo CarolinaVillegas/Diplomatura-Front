@@ -1,0 +1,22 @@
+{
+  "data": [
+    {
+      "title": "Meme 1",
+      "image": "mark",
+      "description": "lorem impsum",
+      "category": "Sports"
+    },
+    {
+      "title": "Meme 2",
+      "image": "ryan",
+      "description": "lorem impsum",
+      "category": "General"
+    },
+    {
+      "title": "Meme 3",
+      "image": "joseph",
+      "description": "lorem impsum",
+      "category": "Gaming"
+    }
+  ]
+}
