@@ -10,8 +10,8 @@ import { data } from "./data.json";
 import TodoForm from "./components/TodoForm";
 
 class App extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       data,
     };
@@ -62,8 +62,7 @@ class App extends Component {
       <div className="App">
         <nav className="navbar navbar-dark bg-dark">
           <a className="navbar-brand" href="/">
-            Username:
-            Posts:
+            Username: Posts:
             <span className="badge badge-pill badge-light ml-2">
               {this.state.data.length}
             </span>
@@ -71,30 +70,22 @@ class App extends Component {
         </nav>
 
         <div className="container">
-         
-            <div class="text-center">
-              <h1>Meme Clown</h1>
-              <img src={memeclown} className="App-logo" alt="logo" />
-            </div>
-          
+          <div class="text-center">
+            <h1>Meme Clown</h1>
+            <img src={memeclown} className="App-logo" alt="logo" />
+          </div>
 
           <div className="row mt-4">
             <div className="col-md-4 text-center">
               <img src={google} className="App-logo" alt="logo" />
               <TodoForm onAddTodo={this.handleAddTodo}></TodoForm>
             </div>
+          </div>
 
-           
+          <div className="container">
+            <div className="row">{data}</div>
+          </div>
         </div>
-
-        <div className="container">  
-              <div className="row">{data}</div>
-            
-          </div></div>
-
-
-
-
       </div>
     );
   }
