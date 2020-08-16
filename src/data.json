@@ -1,22 +1,25 @@
 {
   "data": [
     {
-      "title": "Meme 1",
-      "image": "mark",
-      "description": "lorem impsum",
-      "category": "Sports"
+      "title": "Don't even know 50% anymore",
+      "image": "https://img-9gag-fun.9cache.com/photo/adVOyEB_460s.jpg",
+      "description": "This was crazy!",
+      "category": "Funny",
+      "votes": 0
     },
     {
-      "title": "Meme 2",
-      "image": "ryan",
+      "title": "Historical image in colours of the day",
+      "image": "https://img-9gag-fun.9cache.com/photo/a2W8NDY_700b.jpg",
       "description": "lorem impsum",
-      "category": "General"
+      "category": "People",
+      "votes": 0
     },
     {
-      "title": "Meme 3",
-      "image": "joseph",
+      "title": "War will f**k you up",
+      "image": "https://img-9gag-fun.9cache.com/photo/agAOrdq_700b.jpg",
       "description": "lorem impsum",
-      "category": "Gaming"
+      "category": "Travel",
+      "votes": 0
     }
   ]
 }

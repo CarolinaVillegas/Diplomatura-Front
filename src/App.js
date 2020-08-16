@@ -8,14 +8,51 @@ import { data } from "./data.json";
 
 // subcomponents
 import TodoForm from "./components/TodoForm";
+import Header from "./components/Header";
+import Meme from "./components/Meme";
 
-class App extends Component {
+export default class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
       data,
     };
+
     this.handleAddTodo = this.handleAddTodo.bind(this);
+  }
+
+  addVote(meme) {
+    const newData = this.state.data.map((m) => {
+      if (m.title === meme.title) {
+        return {
+          ...m,
+          votes: m.votes + 1,
+        };
+      }
+
+      return {
+        ...m,
+      };
+    });
+
+    this.setState({ data: newData });
+  }
+
+  removeVote(meme) {
+    const newData = this.state.data.map((m) => {
+      if (m.title === meme.title) {
+        return {
+          ...m,
+          votes: m.votes - 1,
+        };
+      }
+
+      return {
+        ...m,
+      };
+    });
+
+    this.setState({ data: newData });
   }
 
   removeTodo(index) {
@@ -33,62 +70,28 @@ class App extends Component {
   }
 
   render() {
-    const data = this.state.data.map((todo, i) => {
-      return (
-        <div className="col-md-4" key={i}>
-          <div className="card mt-4">
-            <div className="card-title text-center">
-              <h3>{todo.title}</h3>
-              <span className="badge badge-pill badge-danger ml-2">
-                {todo.category}
-              </span>
-            </div>
-            <div className="card-body">{todo.category}</div>
-            <div className="card-footer">
-              <button
-                className="btn btn-danger"
-                onClick={this.removeTodo.bind(this, i)}
-              >
-                Delete
-              </button>
-            </div>
-          </div>
-        </div>
-      );
-    });
-
-    // RETURN THE COMPONENT
     return (
       <div className="App">
-        <nav className="navbar navbar-dark bg-dark">
-          <a className="navbar-brand" href="/">
-            Username: Posts:
-            <span className="badge badge-pill badge-light ml-2">
-              {this.state.data.length}
-            </span>
-          </a>
-        </nav>
-
+        <Header userData={this.state.data} />
         <div className="container">
-          <div class="text-center">
-            <h1>Meme Clown</h1>
-            <img src={memeclown} className="App-logo" alt="logo" />
-          </div>
-
-          <div className="row mt-4">
-            <div className="col-md-4 text-center">
-              <img src={google} className="App-logo" alt="logo" />
-              <TodoForm onAddTodo={this.handleAddTodo}></TodoForm>
-            </div>
-          </div>
-
-          <div className="container">
-            <div className="row">{data}</div>
-          </div>
+          <article>
+            <Meme
+              userData={this.state.data}
+              addVoteHandler={this.addVote.bind(this)}
+              removeVoteHandler={this.removeVote.bind(this)}
+            />
+          </article>
         </div>
       </div>
     );
   }
 }
 
-export default App;
+/* Google thing
+<div className="row mt-4">
+  <div className="col-md-4 text-center">
+    <img src={google} className="App-logo" alt="logo" />
+    <TodoForm onAddTodo={this.handleAddTodo}></TodoForm>
+  </div>
+</div>
+*/
