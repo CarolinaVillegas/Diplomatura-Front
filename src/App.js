@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import google from "./google.png";
-import memeclown from "./memeclown.png";
+// import google from "pictures/google.png"
+// import memeclown from "pictures/memeclown.png";
 import "./App.css";
 //import './assets/css/fonts.css';
 // data
@@ -8,7 +8,7 @@ import { data } from "./data.json";
 
 // subcomponents
 import TodoForm from "./components/TodoForm";
-import Header from "./components/Header";
+import Header from "./components/Header/Header";
 import Meme from "./components/Meme";
 
 export default class App extends Component {
