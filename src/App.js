@@ -10,6 +10,7 @@ import { data } from "./data.json";
 import TodoForm from "./components/TodoForm";
 import Header from "./components/Header/Header";
 import Meme from "./components/Meme";
+import Menu from "./components/Menu/Menu";
 
 export default class App extends Component {
   constructor(props) {
@@ -74,13 +75,20 @@ export default class App extends Component {
       <div className="App">
         <Header userData={this.state.data} />
         <div className="container">
-          <article>
-            <Meme
-              userData={this.state.data}
-              addVoteHandler={this.addVote.bind(this)}
-              removeVoteHandler={this.removeVote.bind(this)}
-            />
-          </article>
+          <div className="row">
+            <div className="col-md-4">
+              <Menu />
+            </div>
+            <div className="col-md-8">
+              <article>
+                <Meme
+                  userData={this.state.data}
+                  addVoteHandler={this.addVote.bind(this)}
+                  removeVoteHandler={this.removeVote.bind(this)}
+                />
+              </article>
+            </div>
+          </div>
         </div>
       </div>
     );

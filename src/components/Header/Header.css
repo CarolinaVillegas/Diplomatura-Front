@@ -1,19 +1,21 @@
 header {
     padding: 15px;
     text-align: center;
-    background: #1abc9c;
+    background: #323232;
     color: white;
     font-size: 30px;
   }
 
   .title{
-      margin-left: 100px;
+      margin-left: 240px;
+      text-align: center;
   }
 
   .icono{
     max-width: 4%;
     height: auto;
     margin-left: 15px;
+    color: aliceblue;
   }
 
 .loginIn, .signIn{

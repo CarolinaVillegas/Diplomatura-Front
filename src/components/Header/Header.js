@@ -1,6 +1,6 @@
 import React from "react";
 import "./Header.css";
-import icon from "../../pictures/memeghost.png";
+import icon from "../../pictures/memeghost2.png";
 
 export default function Header(props) {
   return (

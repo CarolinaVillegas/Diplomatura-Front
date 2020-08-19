@@ -2,7 +2,7 @@ import React from "react";
 
 export default function Meme({ userData, addVoteHandler, removeVoteHandler }) {
   const data = userData.map((meme, i) => (
-    <div className="col-md-6" key={i}>
+    <div className="col-md-8" key={i}>
       <div className="card mt-4">
         <h3 className="card-title text-center">{meme.title}</h3>
         <h6 className="card-subtitle mb-2 text-muted">{meme.category}</h6>
