@@ -11,12 +11,14 @@ import TodoForm from "./components/TodoForm";
 import Header from "./components/Header/Header";
 import Meme from "./components/Meme";
 import Menu from "./components/Menu/Menu";
+import Login from "./components/Login/Login";
 
 export default class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
       data,
+      isLogin: true,
     };
 
     this.handleAddTodo = this.handleAddTodo.bind(this);
@@ -70,28 +72,58 @@ export default class App extends Component {
     });
   }
 
+  setLogin(){
+    console.log(this.state.isLogin);
+    if(this.state.isLogin){
+      this.setState({ isLogin : false});
+    }else{
+      this.setState({ isLogin : true});
+    }
+  }
+
   render() {
-    return (
-      <div className="App">
-        <Header userData={this.state.data} />
-        <div className="container">
-          <div className="row">
-            <div className="col-md-4">
-              <Menu />
-            </div>
-            <div className="col-md-8">
-              <article>
-                <Meme
-                  userData={this.state.data}
-                  addVoteHandler={this.addVote.bind(this)}
-                  removeVoteHandler={this.removeVote.bind(this)}
-                />
-              </article>
+    if (this.state.isLogin) {
+      return (
+        <div className="App">
+          <Header userData={this.state.data}
+          click = {()=> this.setLogin()}
+           />
+          <div className="container">
+            <div className="row">
+              <div className="col-md-4">
+                <Menu />
+              </div>
+              <div className="col-md-8">
+                <article>
+                  <Meme
+                    userData={this.state.data}
+                    addVoteHandler={this.addVote.bind(this)}
+                    removeVoteHandler={this.removeVote.bind(this)}
+                  />
+                </article>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    );
+      );
+    } else {
+      return (
+        <div className="App">
+          <Header userData={this.state.data} 
+          click = {()=> this.setLogin()}/>
+          <div className="container">
+            <div className="row">
+              <div className="col-md-4">
+                <Menu />
+              </div>
+              <div className="col-md-8">
+                <Login/>
+              </div>
+            </div>
+          </div>
+        </div>
+      );
+    }
   }
 }
 

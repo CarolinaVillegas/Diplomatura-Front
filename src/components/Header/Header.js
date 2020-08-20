@@ -13,15 +13,20 @@ export default function Header(props) {
           </span>
         </a>
       </nav> */}
-      <div className = "row">
-      <div className="col-sm titleAndIcon">
-        <h1 className="title"> Meme Ghost
-        <img className="icono" src={icon} /></h1>
-      </div>
-      <div className = "col-sw buttons">
-        <button className="loginIn">Login In</button>
-        <button className="signIn">Sign In</button>
-      </div>
+      <div className="row">
+        <div className="col-sm titleAndIcon">
+          <h1 className="title">
+            {" "}
+            Meme Ghost
+            <img className="icono" alt="" src={icon} />
+          </h1>
+        </div>
+        <div className="col-sw buttons">
+          <button className="loginIn" onClick={props.click}>
+            Login In
+          </button>
+          <button className="signIn">Sign In</button>
+        </div>
       </div>
     </header>
   );

@@ -17,30 +17,30 @@ export default function Header(props) {
             Category:
           </button>
           <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <a className="dropdown-item" href="#">
+            <a className="dropdown-item" href="">
               Action
             </a>
-            <a className="dropdown-item" href="#">
+            <a className="dropdown-item" href="">
               Another action
             </a>
-            <a className="dropdown-item" href="#">
+            <a className="dropdown-item" href="">
               Something else here
             </a>
           </div>
         </div>
         <ul className="nav flex-column">
           <li className="nav-item ">
-            <a className="nav-link active menuItem" href="#">
+            <a className="nav-link active menuItem" href="">
               Contact Us
             </a>
           </li>
           <li className="nav-item ">
-            <a className="nav-link menuItem" href="#">
+            <a className="nav-link menuItem" href="">
               Help - FAQ
             </a>
           </li>
           <li className="nav-item ">
-            <a className="nav-link menuItem" href="#">
+            <a className="nav-link menuItem" href="">
               About Us
             </a>
           </li>
