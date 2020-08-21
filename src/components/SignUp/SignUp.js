@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { Button, FormGroup, FormControl } from "react-bootstrap";
-import "./Login.css";
+import "./SignUp.css";
 
-export default function Login() {
+export default function SignUp() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -16,9 +16,9 @@ export default function Login() {
   }
 
   return (
-    <div className="Login">
+    <div className="SignUp">
       <form onSubmit={handleSubmit}>
-      <h3 className="card-title text-center">Ingrese su email</h3>
+      <h3 className="card-title text-center">Ingrese su email el cual será su nombre de usuario</h3>
         <FormGroup controlId="email" bsSize="large">
           {/* <ControlLabel>Email</ControlLabel> */}
           <FormControl
@@ -37,8 +37,19 @@ export default function Login() {
             type="password"
           />
         </FormGroup>
+
+        <h3 className="card-title text-center">Ingrese su password nuevamente</h3>
+        <FormGroup controlId="password" bsSize="large">
+          {/* <ControlLabel>Password</ControlLabel> */}
+          <FormControl
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            type="password"
+          />
+        </FormGroup>
+
         <Button block bsSize="large" disabled={!validateForm()} type="submit">
-          Login
+          SignUp
         </Button>
       </form>
     </div>

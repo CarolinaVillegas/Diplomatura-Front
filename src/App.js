@@ -12,6 +12,7 @@ import Header from "./components/Header/Header";
 import Meme from "./components/Meme";
 import Menu from "./components/Menu/Menu";
 import Login from "./components/Login/Login";
+import SignUp from "./components/SignUp/SignUp";
 
 export default class App extends Component {
   constructor(props) {
@@ -19,6 +20,7 @@ export default class App extends Component {
     this.state = {
       data,
       isLogin: true,
+      isSignUp: false,
     };
 
     this.handleAddTodo = this.handleAddTodo.bind(this);
@@ -81,12 +83,23 @@ export default class App extends Component {
     }
   }
 
+
+  setSignUp(){
+    console.log(this.state.isSignUp);
+    if(this.state.isSignUp){
+      this.setState({ isSignUp : false});
+    }else{
+      this.setState({ isSignUp : true});
+    }
+  }
+
   render() {
-    if (this.state.isLogin) {
+    if (this.state.isLogin && this.state.isSignUp===false) {
       return (
         <div className="App">
           <Header userData={this.state.data}
-          click = {()=> this.setLogin()}
+          click = {()=> this.setLogin() /*|| this.setSignUp*/}
+      //click = {()=> this.setSignUp()}
            />
           <div className="container">
             <div className="row">
@@ -107,22 +120,42 @@ export default class App extends Component {
         </div>
       );
     } else {
-      return (
-        <div className="App">
-          <Header userData={this.state.data} 
-          click = {()=> this.setLogin()}/>
-          <div className="container">
-            <div className="row">
-              <div className="col-md-4">
-                <Menu />
-              </div>
-              <div className="col-md-8">
-                <Login/>
+      if(this.state.isSignUp===false && this.state.isLogin===true){
+        return (
+          <div className="App">
+            <Header userData={this.state.data} 
+            click = {()=> this.setSignUp()}/>
+            <div className="container">
+              <div className="row">
+                <div className="col-md-4">
+                  <Menu />
+                </div>
+                <div className="col-md-8">
+                  <SignUp/>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-      );
+        );
+      }else{
+        return (
+          <div className="App">
+            <Header userData={this.state.data} 
+            click = {()=> this.setLogin()}/>
+            <div className="container">
+              <div className="row">
+                <div className="col-md-4">
+                  <Menu />
+                </div>
+                <div className="col-md-8">
+                  <Login/>
+                </div>
+              </div>
+            </div>
+          </div>
+        );
+      }
+      
     }
   }
 }

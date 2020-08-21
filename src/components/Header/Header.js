@@ -25,7 +25,7 @@ export default function Header(props) {
           <button className="loginIn" onClick={props.click}>
             Login In
           </button>
-          <button className="signIn">Sign In</button>
+          <button className="signUp">Sign Up</button>
         </div>
       </div>
     </header>
