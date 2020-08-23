@@ -13,12 +13,23 @@ export default function Login() {
 
   function handleSubmit(event) {
     event.preventDefault();
+
+    fetch("/users/login", {
+      method: "POST",
+      body: JSON.stringify({ email, password }),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
+      .then((res) => res.json())
+      .then((data) => console.log(data))
+      .catch((e) => console.log(e));
   }
 
   return (
     <div className="Login">
       <form onSubmit={handleSubmit}>
-      <h3 className="card-title text-center">Ingrese su email</h3>
+        <h3 className="card-title text-center">Ingrese su email</h3>
         <FormGroup controlId="email" bsSize="large">
           {/* <ControlLabel>Email</ControlLabel> */}
           <FormControl
@@ -37,7 +48,7 @@ export default function Login() {
             type="password"
           />
         </FormGroup>
-        <Button block bsSize="large" disabled={!validateForm()} type="submit">
+        <Button block bsSize="large" type="submit">
           Login
         </Button>
       </form>
