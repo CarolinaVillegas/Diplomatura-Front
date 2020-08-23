@@ -2,6 +2,7 @@
   "name": "myfirstapp",
   "version": "0.1.0",
   "private": true,
+  "proxy": "http://localhost:4000",
   "dependencies": {
     "bootstrap": "^4.5.2",
     "nodemon": "^2.0.4",
