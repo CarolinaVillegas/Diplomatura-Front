@@ -1,6 +1,6 @@
 import React from "react";
 import "./Header.css";
-import {Col, Row, Button} from "react-bootstrap";
+import {Col, Row} from "react-bootstrap";
 import icon from "../../pictures/memeghost2.png";
 import Login from "../Login/Login";
 import SignUp from "../SignUp/SignUp";
