@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Button, FormGroup, FormControl, Card, Modal } from "react-bootstrap";
 import "./Login.css";
+//import LogInG from "./components/LogIng";
 
 export default function Login() {
   const [email, setEmail] = useState("");
@@ -28,6 +29,38 @@ export default function Login() {
       .then((res) => res.json())
       .then((data) => console.log(data))
       .catch((e) => console.log(e));
+  }
+
+  function insertGoogleApi(){
+    const script = document.createElement("script");
+    script.src = "https://apis.google.com/js/api.js";
+    script.onload = () => {
+      this.initializeGoogleSignIn();
+    };
+    document.body.appendChild(script);
+  }
+
+  function initializeGoogleSignIn(){
+    window.gapi.load("auth2", () => {
+      window.gapi.auth2.init({
+        client_id:
+          "886474662299-pjvv2e3midhh92e51v7hrlgn49mr5mvp.apps.googleusercontent.com",
+      });
+      console.log("Api inited");
+
+      window.gapi.load("signin2", () => {
+        const params = {
+          onsuccess: () => {
+            console.log("User has finished signing in!");
+          },
+        };
+        window.gapi.signin2.render("loginButton", params);
+      });
+    });
+  }
+  function componentDidMount(){
+      console.log("Loading");
+      this.insertGoogleApi();
   }
 
   return (
@@ -60,6 +93,10 @@ export default function Login() {
                 type="password"
               />
             </FormGroup>
+            <Button block bsSize="large" type="submit">
+            Sign in with Google
+              </Button>
+
             <Modal.Footer>
               
               <Button block bsSize="large" type="submit">
