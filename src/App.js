@@ -22,8 +22,6 @@ export default class App extends Component {
       isLogin: true,
       isSignUp: false,
     };
-
-    this.handleAddTodo = this.handleAddTodo.bind(this);
   }
 
   addVote(meme) {
@@ -60,51 +58,56 @@ export default class App extends Component {
     this.setState({ data: newData });
   }
 
-  removeTodo(index) {
-    this.setState({
-      data: this.state.data.filter((e, i) => {
-        return i !== index;
-      }),
-    });
-  }
-
-  handleAddTodo(todo) {
-    this.setState({
-      data: [...this.state.data, todo],
-    });
-  }
-
-  setLogin(){
+  setLogin() {
     console.log(this.state.isLogin);
-    if(this.state.isLogin){
-      this.setState({ isLogin : false});
-    }else{
-      this.setState({ isLogin : true});
+    if (this.state.isLogin) {
+      this.setState({ isLogin: false });
+    } else {
+      this.setState({ isLogin: true });
     }
   }
 
-
-  setSignUp(){
+  setSignUp() {
     console.log(this.state.isSignUp);
-    if(this.state.isSignUp){
-      this.setState({ isSignUp : false});
-    }else{
-      this.setState({ isSignUp : true});
+    if (this.state.isSignUp) {
+      this.setState({ isSignUp: false });
+    } else {
+      this.setState({ isSignUp: true });
     }
   }
+
+  componentDidMount() {
+    fetch("/memes")
+      .then((rawMemes) => rawMemes.json())
+      .then((data) => {
+        console.log(data);
+        this.setState({ data });
+      });
+  }
+
+  // filtra los memes de la bd por la categoria asignada
+  showMemesByCategory = async (category) => {
+    const rawMemes = await fetch("/memes");
+    const memes = await rawMemes.json();
+
+    const filteredMemes = memes.filter((meme) => meme.category === category);
+
+    this.setState({ data: filteredMemes });
+  };
 
   render() {
-    if (this.state.isLogin && this.state.isSignUp===false) {
+    if (this.state.isLogin && !this.state.isSignUp) {
       return (
         <div className="App">
-          <Header userData={this.state.data}
-          click = {()=> this.setLogin() /*|| this.setSignUp*/}
-      //click = {()=> this.setSignUp()}
-           />
+          <Header
+            userData={this.state.data}
+            click={() => this.setLogin() /*|| this.setSignUp*/}
+            //click = {()=> this.setSignUp()}
+          />
           <div className="container">
             <div className="row">
               <div className="col-md-4">
-                <Menu />
+                <Menu filterMemes={this.showMemesByCategory} />
               </div>
               <div className="col-md-8">
                 <article>
@@ -120,42 +123,39 @@ export default class App extends Component {
         </div>
       );
     } else {
-      if(this.state.isSignUp===false && this.state.isLogin===true){
+      if (this.state.isSignUp === false && this.state.isLogin === true) {
         return (
           <div className="App">
-            <Header userData={this.state.data} 
-            click = {()=> this.setSignUp()}/>
+            <Header userData={this.state.data} click={() => this.setSignUp()} />
             <div className="container">
               <div className="row">
                 <div className="col-md-4">
                   <Menu />
                 </div>
                 <div className="col-md-8">
-                  <SignUp/>
+                  <SignUp />
                 </div>
               </div>
             </div>
           </div>
         );
-      }else{
+      } else {
         return (
           <div className="App">
-            <Header userData={this.state.data} 
-            click = {()=> this.setLogin()}/>
+            <Header userData={this.state.data} click={() => this.setLogin()} />
             <div className="container">
               <div className="row">
                 <div className="col-md-4">
                   <Menu />
                 </div>
                 <div className="col-md-8">
-                  <Login/>
+                  <Login />
                 </div>
               </div>
             </div>
           </div>
         );
       }
-      
     }
   }
 }

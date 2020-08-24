@@ -1,8 +1,8 @@
-@import url(https://fonts.googleapis.com/css?family=Cabin+Sketch);
-
+@import url("https://fonts.googleapis.com/css?family=Cabin+Sketch");
+@import url("https://fonts.googleapis.com/css2?family=Lobster&display=swap");
 body {
   margin: 0;
   padding: 0;
   /*font-family: sans-serif;*/
-  font-family:'Cabin Sketch', serif;
+  font-family: "Lobster", "Cabin Sketch", serif;
 }

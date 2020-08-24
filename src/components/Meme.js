@@ -6,9 +6,10 @@ export default function Meme({ userData, addVoteHandler, removeVoteHandler }) {
       <div className="card mt-4">
         <h3 className="card-title text-center">{meme.title}</h3>
         <h6 className="card-subtitle mb-2 text-muted">{meme.category}</h6>
-        <img src={meme.image} alt={meme.description} loading="lazy" />
+        <img src={meme.img_source} alt={meme.title} loading="lazy" />
         <div className="card-body">
-          Points: {meme.votes}
+          Puntos: {meme.points} <br />
+          Comentarios: {meme.comment_counter}
           <div className="card-footer">
             <button
               className="btn btn-success"

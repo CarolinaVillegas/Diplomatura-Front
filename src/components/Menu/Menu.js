@@ -1,32 +1,47 @@
 import React from "react";
+import Dropdown from "react-bootstrap/Dropdown";
 import "./Menu.css";
 
-export default function Header(props) {
+export default function Menu(props) {
   return (
     <div>
       <div className="card w-75 boxMenu">
         <div className="dropdown category">
-          <button
-            className="btn btn-secondary dropdown-toggle botonCategory"
-            type="button"
-            id="dropdownMenuButton"
-            data-toggle="dropdown"
-            aria-haspopup="true"
-            aria-expanded="false"
-          >
-            Category:
-          </button>
-          <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <a className="dropdown-item" href="">
-              Action
-            </a>
-            <a className="dropdown-item" href="">
-              Another action
-            </a>
-            <a className="dropdown-item" href="">
-              Something else here
-            </a>
-          </div>
+          <Dropdown>
+            <Dropdown.Toggle variant="success" id="dropdown-basic">
+              Categoría
+            </Dropdown.Toggle>
+
+            <Dropdown.Menu>
+              <Dropdown.Item>
+                <div onClick={() => props.filterMemes("general")}>General</div>
+              </Dropdown.Item>
+              <Dropdown.Item>
+                <div onClick={() => props.filterMemes("random")}>Random</div>
+              </Dropdown.Item>
+              <Dropdown.Item>
+                <div onClick={() => props.filterMemes("política")}>
+                  Política
+                </div>
+              </Dropdown.Item>
+              <Dropdown.Item>
+                <div onClick={() => props.filterMemes("deportes")}>
+                  Deportes
+                </div>
+              </Dropdown.Item>
+              <Dropdown.Item>
+                <div onClick={() => props.filterMemes("animales")}>
+                  Animales
+                </div>
+              </Dropdown.Item>
+              <Dropdown.Item>
+                <div onClick={() => props.filterMemes("gaming")}>Gaming</div>
+              </Dropdown.Item>
+              <Dropdown.Item>
+                <div onClick={() => props.filterMemes("anime")}>Anime</div>
+              </Dropdown.Item>
+            </Dropdown.Menu>
+          </Dropdown>
         </div>
         <ul className="nav flex-column">
           <li className="nav-item ">
@@ -47,7 +62,7 @@ export default function Header(props) {
         </ul>
       </div>
       <div className="card w-75 boxTerms">
-        <a>Privacy Pollicy</a>
+        <a>Privacy Policy</a>
         <a>Terms</a>
         <a>Content Pollicy</a>
         <a>Meme Ghost @ 2020 All Rights Reserved</a>
