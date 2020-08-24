@@ -61,9 +61,7 @@ export default function Login() {
               />
             </FormGroup>
             <Modal.Footer>
-              <Button variant="secondary" onClick={handleClose}>
-                Close
-              </Button>
+              
               <Button block bsSize="large" type="submit">
                 Log in
               </Button>
