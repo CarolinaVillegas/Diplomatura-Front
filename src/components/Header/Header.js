@@ -2,7 +2,8 @@ import React from "react";
 import "./Header.css";
 import {Col, Row, Button} from "react-bootstrap";
 import icon from "../../pictures/memeghost2.png";
-
+import Login from "../Login/Login";
+import SignUp from "../SignUp/SignUp";
 export default function Header(props) {
   return (
     <header>
@@ -15,19 +16,20 @@ export default function Header(props) {
         </a>
       </nav> */}
       <Row>
-        <Col md={9} className="titleAndIcon">
+        <Col md={10} className="titleAndIcon">
           <h1 className="title">
             {" "}
             Meme Ghost
             <img className="icono" alt="" src={icon} />
           </h1>
         </Col>
-        <Col md={3} className=" buttons">
-          <Button className="loginIn" onClick={props.click}>
-            Login In
-          </Button>
-          <Button className="signUp">Sign Up</Button>
+        <Col md={1} className=" buttons">
+        <Login></Login>
         </Col>
+        <Col md={1} className=" buttons">
+        <SignUp></SignUp>
+        </Col>
+        
       </Row>
     </header>
   );
