@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Button, FormGroup, FormControl } from "react-bootstrap";
+import { Button, FormGroup, FormControl, Card } from "react-bootstrap";
 import "./Login.css";
 
 export default function Login() {
@@ -29,7 +29,7 @@ export default function Login() {
   return (
     <div className="Login">
       <form onSubmit={handleSubmit}>
-        <h3 className="card-title text-center">Ingrese su email</h3>
+        <Card.Title>Ingrese su email</Card.Title>
         <FormGroup controlId="email" bsSize="large">
           {/* <ControlLabel>Email</ControlLabel> */}
           <FormControl
@@ -39,7 +39,7 @@ export default function Login() {
             onChange={(e) => setEmail(e.target.value)}
           />
         </FormGroup>
-        <h3 className="card-title text-center">Ingrese su password</h3>
+        <Card.Title>Ingrese su password</Card.Title>
         <FormGroup controlId="password" bsSize="large">
           {/* <ControlLabel>Password</ControlLabel> */}
           <FormControl

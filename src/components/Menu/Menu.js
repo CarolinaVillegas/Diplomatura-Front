@@ -1,14 +1,14 @@
 import React from "react";
-import { Dropdown, Card } from "react-bootstrap";
+import { Dropdown, Card, Nav } from "react-bootstrap";
 import "./Menu.css";
 
 export default function Menu(props) {
   return (
     <div>
       <Card style={{ width: "18rem" }} className=" boxMenu">
-        <div className="dropdown category">
-          <Dropdown>
-            <Dropdown.Toggle variant="success" id="dropdown-basic">
+
+          <Dropdown className="category">
+            <Dropdown.Toggle variant="success" id="dropdown-basic" >
               Categoría
             </Dropdown.Toggle>
             <Dropdown.Menu>
@@ -41,24 +41,23 @@ export default function Menu(props) {
               </Dropdown.Item>
             </Dropdown.Menu>
           </Dropdown>
-        </div>
-        <ul className="nav flex-column">
-          <li className="nav-item ">
-            <a className="nav-link active menuItem" href="">
+        <Nav className="flex-column">
+          <Nav.Item>
+            <Nav.Link className="active menuItem" href="">
               Contact Us
-            </a>
-          </li>
-          <li className="nav-item ">
-            <a className="nav-link menuItem" href="">
+            </Nav.Link>
+          </Nav.Item>
+          <Nav.Item>
+            <Nav.Link className=" menuItem" href="">
               Help - FAQ
-            </a>
-          </li>
-          <li className="nav-item ">
-            <a className="nav-link menuItem" href="">
+            </Nav.Link>
+          </Nav.Item>
+          <Nav.Item>
+            <Nav.Link className="menuItem" href="">
               About Us
-            </a>
-          </li>
-        </ul>
+            </Nav.Link>
+          </Nav.Item>
+        </Nav>
       </Card>
       <Card style={{ width: "18rem" }} className="boxTerms">
         <a className="text">Privacy Policy</a>
