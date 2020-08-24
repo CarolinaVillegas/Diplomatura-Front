@@ -1,5 +1,6 @@
 import React from "react";
 import "./Header.css";
+import {Col, Row, Button} from "react-bootstrap";
 import icon from "../../pictures/memeghost2.png";
 
 export default function Header(props) {
@@ -13,21 +14,21 @@ export default function Header(props) {
           </span>
         </a>
       </nav> */}
-      <div className="row">
-        <div className="col-sm titleAndIcon">
+      <Row>
+        <Col md={9} className="titleAndIcon">
           <h1 className="title">
             {" "}
             Meme Ghost
             <img className="icono" alt="" src={icon} />
           </h1>
-        </div>
-        <div className="col-sw buttons">
-          <button className="loginIn" onClick={props.click}>
+        </Col>
+        <Col md={3} className=" buttons">
+          <Button className="loginIn" onClick={props.click}>
             Login In
-          </button>
-          <button className="signUp">Sign Up</button>
-        </div>
-      </div>
+          </Button>
+          <Button className="signUp">Sign Up</Button>
+        </Col>
+      </Row>
     </header>
   );
 }

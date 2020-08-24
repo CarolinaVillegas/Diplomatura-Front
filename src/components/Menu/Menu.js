@@ -1,17 +1,16 @@
 import React from "react";
-import Dropdown from "react-bootstrap/Dropdown";
+import { Dropdown, Card } from "react-bootstrap";
 import "./Menu.css";
 
 export default function Menu(props) {
   return (
     <div>
-      <div className="card w-75 boxMenu">
+      <Card style={{ width: "18rem" }} className=" boxMenu">
         <div className="dropdown category">
           <Dropdown>
             <Dropdown.Toggle variant="success" id="dropdown-basic">
               Categoría
             </Dropdown.Toggle>
-
             <Dropdown.Menu>
               <Dropdown.Item>
                 <div onClick={() => props.filterMemes("general")}>General</div>
@@ -60,13 +59,13 @@ export default function Menu(props) {
             </a>
           </li>
         </ul>
-      </div>
-      <div className="card w-75 boxTerms">
-        <a>Privacy Policy</a>
-        <a>Terms</a>
-        <a>Content Pollicy</a>
-        <a>Meme Ghost @ 2020 All Rights Reserved</a>
-      </div>
+      </Card>
+      <Card style={{ width: "18rem" }} className="boxTerms">
+        <a className="text">Privacy Policy</a>
+        <a className="text">Terms</a>
+        <a className="text">Content Pollicy</a>
+        <a className="text">Meme Ghost @ 2020 All Rights Reserved</a>
+      </Card>
     </div>
   );
 }

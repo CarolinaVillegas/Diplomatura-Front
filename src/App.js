@@ -5,11 +5,11 @@ import "./App.css";
 //import './assets/css/fonts.css';
 // data
 import { data } from "./data.json";
-
+import { Container, Row, Col } from "react-bootstrap";
 // subcomponents
 import TodoForm from "./components/TodoForm";
 import Header from "./components/Header/Header";
-import Meme from "./components/Meme";
+import Meme from "./components/Meme/Meme";
 import Menu from "./components/Menu/Menu";
 import Login from "./components/Login/Login";
 import SignUp from "./components/SignUp/SignUp";
@@ -104,12 +104,12 @@ export default class App extends Component {
             click={() => this.setLogin() /*|| this.setSignUp*/}
             //click = {()=> this.setSignUp()}
           />
-          <div className="container">
-            <div className="row">
-              <div className="col-md-4">
+          <Container fluid>
+            <Row>
+              <Col md={4} className = "menuBox">
                 <Menu filterMemes={this.showMemesByCategory} />
-              </div>
-              <div className="col-md-8">
+              </Col>
+              <Col sm={6} md={8}>
                 <article>
                   <Meme
                     userData={this.state.data}
@@ -117,9 +117,9 @@ export default class App extends Component {
                     removeVoteHandler={this.removeVote.bind(this)}
                   />
                 </article>
-              </div>
-            </div>
-          </div>
+              </Col>
+            </Row>
+          </Container>
         </div>
       );
     } else {
@@ -127,32 +127,32 @@ export default class App extends Component {
         return (
           <div className="App">
             <Header userData={this.state.data} click={() => this.setSignUp()} />
-            <div className="container">
-              <div className="row">
-                <div className="col-md-4">
+            <Container>
+              <Row>
+                <Col md={4} className = "menuBox">
                   <Menu />
-                </div>
-                <div className="col-md-8">
+                </Col>
+                <Col md={8}>
                   <SignUp />
-                </div>
-              </div>
-            </div>
+                </Col>
+              </Row>
+            </Container>
           </div>
         );
       } else {
         return (
           <div className="App">
             <Header userData={this.state.data} click={() => this.setLogin()} />
-            <div className="container">
-              <div className="row">
-                <div className="col-md-4">
+            <Container fluid>
+              <Row>
+                <Col md={4} className = "menuBox">
                   <Menu />
-                </div>
-                <div className="col-md-8">
+                </Col>
+                <Col md={8}>
                   <Login />
-                </div>
-              </div>
-            </div>
+                </Col>
+              </Row>
+            </Container>
           </div>
         );
       }

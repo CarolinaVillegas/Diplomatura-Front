@@ -1,0 +1,11 @@
+.cardPrimary{
+    margin-top: 10px;
+}
+
+.cardTitle, .cardSubtitle{
+    text-align: center;
+}
+
+.botonesLike{
+    border-radius: 1em;
+}

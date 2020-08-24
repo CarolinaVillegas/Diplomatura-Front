@@ -1,22 +1,24 @@
-.menuItem{
-    color: #323232;
-    font-family: Arial, Helvetica, sans-serif;
-    margin-left: 70px;;
+.menuItem,
+.text {
+  color: #323232;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.menuItem {
+  vertical-align: middle;
+  text-align: center;
 }
 
-.botonCategory{
-    font-family: Arial, Helvetica, sans-serif;
+.botonCategory {
+  font-family: Arial, Helvetica, sans-serif;
 }
 
-.boxMenu{
-    margin-top: 200px;
+.category {
+  margin-top: 5px;
+  vertical-align: middle;
+  text-align: center;
+  margin-bottom: 50px;
 }
 
-.category{
-    margin-left: 70px;
-    margin-bottom: 50px;
-}
-
-.boxTerms{
-    margin-top: 70px;
+.boxTerms {
+  margin-top: 70px;
 }

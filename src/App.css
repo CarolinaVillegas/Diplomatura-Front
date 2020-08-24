@@ -32,3 +32,9 @@
 .text-center {
   text-align: center;
 }
+
+.menuBox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
