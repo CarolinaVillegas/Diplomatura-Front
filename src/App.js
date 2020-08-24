@@ -7,7 +7,7 @@ import "./App.css";
 import { data } from "./data.json";
 import { Container, Row, Col } from "react-bootstrap";
 // subcomponents
-import TodoForm from "./components/TodoForm";
+import CreateMeme from "./components/CreateMeme";
 import Header from "./components/Header/Header";
 import Meme from "./components/Meme/Meme";
 import Menu from "./components/Menu/Menu";
@@ -149,7 +149,8 @@ export default class App extends Component {
             <Container fluid>
               <Row>
                 <Col md={4} className="menuBox">
-                  <Menu />
+                  <Menu /> 
+                  <CreateMeme />                 
                 </Col>
                 <Col md={8}>
                   <Login />
