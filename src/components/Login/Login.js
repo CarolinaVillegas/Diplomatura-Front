@@ -29,9 +29,12 @@ export default function Login() {
       .then((res) => res.json())
       .then((data) => console.log(data))
       .catch((e) => console.log(e));
+
+    setEmail("");
+    setPassword("");
   }
 
-  function insertGoogleApi(){
+  function insertGoogleApi() {
     const script = document.createElement("script");
     script.src = "https://apis.google.com/js/api.js";
     script.onload = () => {
@@ -40,7 +43,7 @@ export default function Login() {
     document.body.appendChild(script);
   }
 
-  function initializeGoogleSignIn(){
+  function initializeGoogleSignIn() {
     window.gapi.load("auth2", () => {
       window.gapi.auth2.init({
         client_id:
@@ -58,9 +61,9 @@ export default function Login() {
       });
     });
   }
-  function componentDidMount(){
-      console.log("Loading");
-      this.insertGoogleApi();
+  function componentDidMount() {
+    console.log("Loading");
+    this.insertGoogleApi();
   }
 
   return (
@@ -75,7 +78,7 @@ export default function Login() {
         <Modal.Body>
           <form onSubmit={handleSubmit}>
             <Card.Title>Ingrese su email</Card.Title>
-            <FormGroup controlId="email" bsSize="large">
+            <FormGroup controlId="email">
               {/* <ControlLabel>Email</ControlLabel> */}
               <FormControl
                 autoFocus
@@ -85,7 +88,7 @@ export default function Login() {
               />
             </FormGroup>
             <Card.Title>Ingrese su password</Card.Title>
-            <FormGroup controlId="password" bsSize="large">
+            <FormGroup controlId="password">
               {/* <ControlLabel>Password</ControlLabel> */}
               <FormControl
                 value={password}
@@ -93,13 +96,20 @@ export default function Login() {
                 type="password"
               />
             </FormGroup>
-            <Button block bsSize="large" type="submit">
-            Sign in with Google
+            <Modal.Footer>
+              <Button variant="secondary" onClick={handleClose}>
+                Close
+              </Button>
+              <Button block type="submit">
+                Sign in with Google
               </Button>
 
-            <Modal.Footer>
-              
-              <Button block bsSize="large" type="submit">
+              <Button
+                block
+                disabled={!validateForm()}
+                onClick={handleClose}
+                type="submit"
+              >
                 Log in
               </Button>
             </Modal.Footer>
