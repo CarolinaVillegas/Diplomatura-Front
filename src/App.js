@@ -86,6 +86,9 @@ export default class App extends Component {
       });
   }
 
+
+
+
   // filtra los memes de la bd por la categoria asignada
   showMemesByCategory = async (category) => {
     const rawMemes = await fetch("/memes");
@@ -107,7 +110,7 @@ export default class App extends Component {
           />
           <Container fluid>
             <Row>
-              <Col md={4} className = "menuBox">
+              <Col md={4} className="menuBox">
                 <Menu filterMemes={this.showMemesByCategory} />
               </Col>
               <Col sm={6} md={8}>
@@ -133,7 +136,7 @@ export default class App extends Component {
             <Header userData={this.state.data} click={() => this.setSignUp()} />
             <Container>
               <Row>
-                <Col md={4} className = "menuBox">
+                <Col md={4} className="menuBox">
                   <Menu />
                 </Col>
                 <Col md={8}>
@@ -146,10 +149,10 @@ export default class App extends Component {
       } else {
         return (
           <div className="App">
-            <Header userData={this.state.data} click={() => this.setLogin()} />
+            <Header userData={this.state.data} click={() => this.setLogin()} />            
             <Container fluid>
               <Row>
-                <Col md={4} className = "menuBox">
+                <Col md={4} className="menuBox">
                   <Menu />
                 </Col>
                 <Col md={8}>

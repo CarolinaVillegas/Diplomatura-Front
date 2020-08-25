@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Button, FormGroup, FormControl, Card, Modal } from "react-bootstrap";
 import "./Login.css";
+//import LogInG from "./components/LogIng";
 
 export default function Login() {
   const [email, setEmail] = useState("");
@@ -24,13 +25,45 @@ export default function Login() {
       headers: {
         "Content-Type": "application/json",
       },
-    }) 
+    })
       .then((res) => res.json())
       .then((data) => console.log(data))
       .catch((e) => console.log(e));
 
-      setEmail('');
-      setPassword('');
+    setEmail("");
+    setPassword("");
+  }
+
+  function insertGoogleApi() {
+    const script = document.createElement("script");
+    script.src = "https://apis.google.com/js/api.js";
+    script.onload = () => {
+      this.initializeGoogleSignIn();
+    };
+    document.body.appendChild(script);
+  }
+
+  function initializeGoogleSignIn() {
+    window.gapi.load("auth2", () => {
+      window.gapi.auth2.init({
+        client_id:
+          "886474662299-pjvv2e3midhh92e51v7hrlgn49mr5mvp.apps.googleusercontent.com",
+      });
+      console.log("Api inited");
+
+      window.gapi.load("signin2", () => {
+        const params = {
+          onsuccess: () => {
+            console.log("User has finished signing in!");
+          },
+        };
+        window.gapi.signin2.render("loginButton", params);
+      });
+    });
+  }
+  function componentDidMount() {
+    console.log("Loading");
+    this.insertGoogleApi();
   }
 
   return (
@@ -45,7 +78,7 @@ export default function Login() {
         <Modal.Body>
           <form onSubmit={handleSubmit}>
             <Card.Title>Ingrese su email</Card.Title>
-            <FormGroup controlId="email" >
+            <FormGroup controlId="email">
               {/* <ControlLabel>Email</ControlLabel> */}
               <FormControl
                 autoFocus
@@ -55,7 +88,7 @@ export default function Login() {
               />
             </FormGroup>
             <Card.Title>Ingrese su password</Card.Title>
-            <FormGroup controlId="password" >
+            <FormGroup controlId="password">
               {/* <ControlLabel>Password</ControlLabel> */}
               <FormControl
                 value={password}
@@ -67,7 +100,16 @@ export default function Login() {
               <Button variant="secondary" onClick={handleClose}>
                 Close
               </Button>
-              <Button block disabled={!validateForm()} onClick={handleClose} type="submit">
+              <Button block type="submit">
+                Sign in with Google
+              </Button>
+
+              <Button
+                block
+                disabled={!validateForm()}
+                onClick={handleClose}
+                type="submit"
+              >
                 Log in
               </Button>
             </Modal.Footer>
