@@ -86,7 +86,11 @@ export default class App extends Component {
       });
   }
 
-
+  handleAddTodo(todo) {
+    this.setState({
+      data: [...this.state.data, todo],
+    });
+  }
 
 
   // filtra los memes de la bd por la categoria asignada
@@ -110,6 +114,7 @@ export default class App extends Component {
           />
           <Container fluid>
             <Row>
+              {/*<CreateMeme onAddTodo={this.handleAddTodo} />*/ }
               <Col md={4} className="menuBox">
                 <Menu filterMemes={this.showMemesByCategory} />
               </Col>
