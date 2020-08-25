@@ -3,8 +3,9 @@ import { Col, Card, Button } from "react-bootstrap";
 import "./Meme.css";
 
 export default function Meme({ userData, addVoteHandler, removeVoteHandler }) {
+  
   const data = userData.map((meme, i) => (
-    <Col sm = {6} md={8} key={i}>
+    <Col sm={6} md={8} key={i}>
       <Card style={{ width: "35rem" }} className="cardPrimary">
         <Card.Title className="cardTitle">{meme.title}</Card.Title>
         <Card.Subtitle className="cardSubtitle">{meme.category}</Card.Subtitle>

@@ -24,10 +24,13 @@ export default function Login() {
       headers: {
         "Content-Type": "application/json",
       },
-    })
+    }) 
       .then((res) => res.json())
       .then((data) => console.log(data))
       .catch((e) => console.log(e));
+
+      setEmail('');
+      setPassword('');
   }
 
   return (
@@ -42,7 +45,7 @@ export default function Login() {
         <Modal.Body>
           <form onSubmit={handleSubmit}>
             <Card.Title>Ingrese su email</Card.Title>
-            <FormGroup controlId="email" bsSize="large">
+            <FormGroup controlId="email" >
               {/* <ControlLabel>Email</ControlLabel> */}
               <FormControl
                 autoFocus
@@ -52,7 +55,7 @@ export default function Login() {
               />
             </FormGroup>
             <Card.Title>Ingrese su password</Card.Title>
-            <FormGroup controlId="password" bsSize="large">
+            <FormGroup controlId="password" >
               {/* <ControlLabel>Password</ControlLabel> */}
               <FormControl
                 value={password}
@@ -64,7 +67,7 @@ export default function Login() {
               <Button variant="secondary" onClick={handleClose}>
                 Close
               </Button>
-              <Button block bsSize="large" type="submit">
+              <Button block disabled={!validateForm()} onClick={handleClose} type="submit">
                 Log in
               </Button>
             </Modal.Footer>

@@ -13,6 +13,7 @@ import Meme from "./components/Meme/Meme";
 import Menu from "./components/Menu/Menu";
 import Login from "./components/Login/Login";
 import SignUp from "./components/SignUp/SignUp";
+import Scroll from "./components/Scroll";
 
 export default class App extends Component {
   constructor(props) {
@@ -117,6 +118,9 @@ export default class App extends Component {
                     removeVoteHandler={this.removeVote.bind(this)}
                   />
                 </article>
+              </Col>
+              <Col md = {1}>
+                <Scroll></Scroll>
               </Col>
             </Row>
           </Container>
