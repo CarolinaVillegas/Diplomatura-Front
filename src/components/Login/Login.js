@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import { Button, FormGroup, FormControl, Card, Modal } from "react-bootstrap";
+import { Form, Button, FormGroup, FormControl, Card, Modal } from "react-bootstrap";
 import "./Login.css";
 //import LogInG from "./components/LogIng";
 
-export default function Login() {
+export default function Login(props) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [show, setShow] = useState(false);
@@ -16,19 +16,29 @@ export default function Login() {
     return email.length > 0 && password.length > 0;
   }
 
-  function handleSubmit(event) {
-    event.preventDefault();
+  const signIn = () => {
 
-    fetch("/users/login", {
+    fetch("/users", {
       method: "POST",
       body: JSON.stringify({ email, password }),
       headers: {
         "Content-Type": "application/json",
       },
     })
-      .then((res) => res.json())
-      .then((data) => console.log(data))
-      .catch((e) => console.log(e));
+      .then(response => {
+            if(response.ok) {
+                return response.json()
+            }
+            throw new Error("Login inválido...");
+        })
+        .then(token => {
+            localStorage.setItem('token', token);
+            props.history.push("/admin");
+            return;
+        })
+        .catch(e => {
+            
+        }); 
 
     setEmail("");
     setPassword("");
@@ -61,6 +71,7 @@ export default function Login() {
       });
     });
   }
+
   function componentDidMount() {
     console.log("Loading");
     this.insertGoogleApi();
@@ -76,10 +87,9 @@ export default function Login() {
           <Modal.Title>Login In</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <form onSubmit={handleSubmit}>
+          <Form >
             <Card.Title>Ingrese su email</Card.Title>
             <FormGroup controlId="email">
-              {/* <ControlLabel>Email</ControlLabel> */}
               <FormControl
                 autoFocus
                 type="email"
@@ -107,13 +117,13 @@ export default function Login() {
               <Button
                 block
                 disabled={!validateForm()}
-                onClick={handleClose}
+                 onClick={signIn}
                 type="submit"
               >
                 Log in
               </Button>
             </Modal.Footer>
-          </form>
+          </Form>
         </Modal.Body>
       </Modal>
     </div>

@@ -16,7 +16,7 @@ export default class ScrollToTop extends Component {
   }
 
   toggleVisibility() {
-    if (window.pageYOffset > 100) {
+    if (window.pageYOffset > 200) {
       this.setState({
         is_visible: true
       });

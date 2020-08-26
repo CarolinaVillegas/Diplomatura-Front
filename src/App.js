@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+
 // import google from "pictures/google.png"
 // import memeclown from "pictures/memeclown.png";
 import "./App.css";
@@ -14,14 +15,15 @@ import Menu from "./components/Menu/Menu";
 import Login from "./components/Login/Login";
 import SignUp from "./components/SignUp/SignUp";
 import Scroll from "./components/Scroll";
+import Routes from "./Routes/routes";
+import { Router } from "react-router-dom";
 
 export default class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
       data,
-      isLogin: true,
-      isSignUp: false,
+      currentUser: null
     };
   }
 
@@ -59,23 +61,6 @@ export default class App extends Component {
     this.setState({ data: newData });
   }
 
-  setLogin() {
-    console.log(this.state.isLogin);
-    if (this.state.isLogin) {
-      this.setState({ isLogin: false });
-    } else {
-      this.setState({ isLogin: true });
-    }
-  }
-
-  setSignUp() {
-    console.log(this.state.isSignUp);
-    if (this.state.isSignUp) {
-      this.setState({ isSignUp: false });
-    } else {
-      this.setState({ isSignUp: true });
-    }
-  }
 
   componentDidMount() {
     fetch("/memes")
@@ -86,28 +71,22 @@ export default class App extends Component {
       });
   }
 
-
-
-
   // filtra los memes de la bd por la categoria asignada
   showMemesByCategory = async (category) => {
     const rawMemes = await fetch("/memes");
     const memes = await rawMemes.json();
-
     const filteredMemes = memes.filter((meme) => meme.category === category);
 
     this.setState({ data: filteredMemes });
   };
 
   render() {
-    if (this.state.isLogin && !this.state.isSignUp) {
       return (
         <div className="App">
           <Header
-            userData={this.state.data}
-            click={() => this.setLogin() /*|| this.setSignUp*/}
-            //click = {()=> this.setSignUp()}
+            //userData={this.state.data}
           />
+          {/* <Routes/> */}
           <Container fluid>
             <Row>
               <Col md={4} className="menuBox">
@@ -122,50 +101,17 @@ export default class App extends Component {
                   />
                 </article>
               </Col>
-              <Col md = {1}>
+              <Col md={8}>
+                </Col>
+              <Col md={1}>
                 <Scroll></Scroll>
               </Col>
             </Row>
           </Container>
         </div>
       );
-    } else {
-      if (this.state.isSignUp === false && this.state.isLogin === true) {
-        return (
-          <div className="App">
-            <Header userData={this.state.data} click={() => this.setSignUp()} />
-            <Container>
-              <Row>
-                <Col md={4} className="menuBox">
-                  <Menu />
-                </Col>
-                <Col md={8}>
-                  <SignUp />
-                </Col>
-              </Row>
-            </Container>
-          </div>
-        );
-      } else {
-        return (
-          <div className="App">
-            <Header userData={this.state.data} click={() => this.setLogin()} />            
-            <Container fluid>
-              <Row>
-                <Col md={4} className="menuBox">
-                  <Menu />
-                </Col>
-                <Col md={8}>
-                  <Login />
-                </Col>
-              </Row>
-            </Container>
-          </div>
-        );
-      }
     }
   }
-}
 
 /* Google thing
 <div className="row mt-4">
