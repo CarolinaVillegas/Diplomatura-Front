@@ -8,7 +8,7 @@ import "./App.css";
 import { data } from "./data.json";
 import { Container, Row, Col } from "react-bootstrap";
 // subcomponents
-import TodoForm from "./components/TodoForm";
+import CreateMeme from "./components/CreateMeme";
 import Header from "./components/Header/Header";
 import Meme from "./components/Meme/Meme";
 import Menu from "./components/Menu/Menu";
@@ -71,6 +71,13 @@ export default class App extends Component {
       });
   }
 
+  handleAddTodo(todo) {
+    this.setState({
+      data: [...this.state.data, todo],
+    });
+  }
+
+
   // filtra los memes de la bd por la categoria asignada
   showMemesByCategory = async (category) => {
     const rawMemes = await fetch("/memes");
@@ -89,6 +96,7 @@ export default class App extends Component {
           {/* <Routes/> */}
           <Container fluid>
             <Row>
+              {/*<CreateMeme onAddTodo={this.handleAddTodo} />*/ }
               <Col md={4} className="menuBox">
                 <Menu filterMemes={this.showMemesByCategory} />
               </Col>

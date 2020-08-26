@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Form, Button, FormGroup, FormControl, Card, Modal } from "react-bootstrap";
 import "./Login.css";
+import GoogleLogin from "react-google-login";
 //import LogInG from "./components/LogIng";
 
 export default function Login(props) {
@@ -44,7 +45,7 @@ export default function Login(props) {
     setPassword("");
   }
 
-  function insertGoogleApi() {
+  /*function insertGoogleApi() {
     const script = document.createElement("script");
     script.src = "https://apis.google.com/js/api.js";
     script.onload = () => {
@@ -75,6 +76,11 @@ export default function Login(props) {
   function componentDidMount() {
     console.log("Loading");
     this.insertGoogleApi();
+  }*/
+
+  function responseGoogle(response){
+    console.log(this.response);
+    console.log(this.response.profileObj);
   }
 
   return (
@@ -114,6 +120,14 @@ export default function Login(props) {
                 Sign in with Google
               </Button>
 
+              <GoogleLogin
+              //client secret: YmddoOJzu-Pn6Z4-rZPuq0Bi
+              clientId="282838883290-bvn9b680k2srb84k08jddmvv9e02qav4.apps.googleusercontent.com"
+              buttonText="Log in with Google"
+              onSuccess={responseGoogle}
+              onFailure={responseGoogle}
+              cookiePolicy={'single_hosy_origin'}
+              />
               <Button
                 block
                 disabled={!validateForm()}
