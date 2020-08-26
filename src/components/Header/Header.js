@@ -1,6 +1,6 @@
 import React from "react";
 import "./Header.css";
-import {Col, Row} from "react-bootstrap";
+import { Col, Row } from "react-bootstrap";
 import icon from "../../pictures/memeghost2.png";
 import Login from "../Login/Login";
 import SignUp from "../SignUp/SignUp";
@@ -24,12 +24,11 @@ export default function Header(props) {
           </h1>
         </Col>
         <Col md={1} className=" buttons">
-        <Login></Login>
+          <Login></Login>
         </Col>
         <Col md={1} className=" buttons">
-        <SignUp></SignUp>
+          <SignUp></SignUp>
         </Col>
-        
       </Row>
     </header>
   );

@@ -1,5 +1,12 @@
 import React, { useState } from "react";
-import { Form, Button, FormGroup, FormControl, Card, Modal } from "react-bootstrap";
+import {
+  Form,
+  Button,
+  FormGroup,
+  FormControl,
+  Card,
+  Modal,
+} from "react-bootstrap";
 import "./Login.css";
 import GoogleLogin from "react-google-login";
 //import LogInG from "./components/LogIng";
@@ -18,7 +25,6 @@ export default function Login(props) {
   }
 
   const signIn = () => {
-
     fetch("/users", {
       method: "POST",
       body: JSON.stringify({ email, password }),
@@ -26,24 +32,22 @@ export default function Login(props) {
         "Content-Type": "application/json",
       },
     })
-      .then(response => {
-            if(response.ok) {
-                return response.json()
-            }
-            throw new Error("Login inválido...");
-        })
-        .then(token => {
-            localStorage.setItem('token', token);
-            props.history.push("/admin");
-            return;
-        })
-        .catch(e => {
-            
-        }); 
+      .then((response) => {
+        if (response.ok) {
+          return response.json();
+        }
+        throw new Error("Login inválido...");
+      })
+      .then((token) => {
+        localStorage.setItem("token", token);
+        props.history.push("/admin");
+        return;
+      })
+      .catch((e) => {});
 
     setEmail("");
     setPassword("");
-  }
+  };
 
   /*function insertGoogleApi() {
     const script = document.createElement("script");
@@ -78,7 +82,7 @@ export default function Login(props) {
     this.insertGoogleApi();
   }*/
 
-  function responseGoogle(response){
+  function responseGoogle(response) {
     console.log(this.response);
     console.log(this.response.profileObj);
   }
@@ -93,7 +97,7 @@ export default function Login(props) {
           <Modal.Title>Login In</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <Form >
+          <Form>
             <Card.Title>Ingrese su email</Card.Title>
             <FormGroup controlId="email">
               <FormControl
@@ -121,17 +125,17 @@ export default function Login(props) {
               </Button>
 
               <GoogleLogin
-              //client secret: YmddoOJzu-Pn6Z4-rZPuq0Bi
-              clientId="282838883290-bvn9b680k2srb84k08jddmvv9e02qav4.apps.googleusercontent.com"
-              buttonText="Log in with Google"
-              onSuccess={responseGoogle}
-              onFailure={responseGoogle}
-              cookiePolicy={'single_hosy_origin'}
+                //client secret: YmddoOJzu-Pn6Z4-rZPuq0Bi
+                clientId="282838883290-bvn9b680k2srb84k08jddmvv9e02qav4.apps.googleusercontent.com"
+                buttonText="Log in with Google"
+                onSuccess={responseGoogle}
+                onFailure={responseGoogle}
+                cookiePolicy={"single_hosy_origin"}
               />
               <Button
                 block
                 disabled={!validateForm()}
-                 onClick={signIn}
+                onClick={signIn}
                 type="submit"
               >
                 Log in

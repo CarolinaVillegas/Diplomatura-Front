@@ -3,7 +3,6 @@ import { Col, Card, Button } from "react-bootstrap";
 import "./Meme.css";
 
 export default function Meme({ userData, addVoteHandler, removeVoteHandler }) {
-  
   const data = userData.map((meme, i) => (
     <Col sm={6} md={8} key={i}>
       <Card style={{ width: "35rem" }} className="cardPrimary">

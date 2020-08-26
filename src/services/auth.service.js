@@ -1,31 +1,32 @@
-import React from 'react';
+import React from "react";
 
-import { Route, Redirect } from 'react-router-dom';
+import { Route, Redirect } from "react-router-dom";
 
 const isAuth = () => {
-    if(localStorage.getItem('token') !== null) {
-        return true
-    }
-    return false;
+  if (localStorage.getItem("token") !== null) {
+    return true;
+  }
+  return false;
 };
 
-const PrivateRoute = ({component: Component, ...rest}) => {
-    return (
-        <Route 
-            {...rest}
-            render={props => 
-            isAuth() ? (
-                <Component {...props} />
-            ): (
-                <Redirect 
-                    to={{
-                        pathname: '/',
-                        state: { message: 'Usuario no autorizado' }
-                    }}
-                />
-            )}
-        />
-    );
-}
+const PrivateRoute = ({ component: Component, ...rest }) => {
+  return (
+    <Route
+      {...rest}
+      render={(props) =>
+        isAuth() ? (
+          <Component {...props} />
+        ) : (
+          <Redirect
+            to={{
+              pathname: "/",
+              state: { message: "Usuario no autorizado" },
+            }}
+          />
+        )
+      }
+    />
+  );
+};
 
 export default PrivateRoute;

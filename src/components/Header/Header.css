@@ -1,60 +1,56 @@
 header {
-    padding: 15px;
-    text-align: center;
-    background: #323232;
-    color: white;
-    font-size: 30px;
-  }
-
-  .title{
-      text-align: center;
-      display: flex;
-      justify-content: center;
-  }
-
-  .icono{
-    max-width: 4%;
-    height: auto;
-    margin-left: 15px;
-    color: aliceblue;
-  }
-
-.loginIn, .signUp{
-    border-radius: 5px;
-    margin-right: 5px;
-    font-size: 18px;
-    
+  padding: 15px;
+  text-align: center;
+  background: #323232;
+  color: white;
+  font-size: 30px;
 }
 
-@media(max-width:544px){
-  .icono{
+.title {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+}
+
+.icono {
+  max-width: 4%;
+  height: auto;
+  margin-left: 15px;
+  color: aliceblue;
+}
+
+.loginIn,
+.signUp {
+  border-radius: 5px;
+  margin-right: 5px;
+  font-size: 18px;
+}
+
+@media (max-width: 544px) {
+  .icono {
     max-width: 100%;
     height: 30px;
   }
 }
 
 /* Small devices */
-@media(min-width:544px){
-  .icono{
+@media (min-width: 544px) {
+  .icono {
     max-width: 100%;
     height: 30px;
     margin-top: 5px;
   }
-
 }
 /* Medium devices */
-@media(min-width:768px){
-  .icono{
+@media (min-width: 768px) {
+  .icono {
     max-width: 100%;
     height: 30px;
   }
-  .title{
+  .title {
     text-align: center;
     display: flex;
     justify-content: center;
     margin-left: 180px;
+  }
 }
-}
-
-
-  

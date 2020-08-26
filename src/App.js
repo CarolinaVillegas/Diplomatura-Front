@@ -23,7 +23,7 @@ export default class App extends Component {
     super(props);
     this.state = {
       data,
-      currentUser: null
+      currentUser: null,
     };
   }
 
@@ -61,7 +61,6 @@ export default class App extends Component {
     this.setState({ data: newData });
   }
 
-
   componentDidMount() {
     fetch("/memes")
       .then((rawMemes) => rawMemes.json())
@@ -77,7 +76,6 @@ export default class App extends Component {
     });
   }
 
-
   // filtra los memes de la bd por la categoria asignada
   showMemesByCategory = async (category) => {
     const rawMemes = await fetch("/memes");
@@ -88,38 +86,37 @@ export default class App extends Component {
   };
 
   render() {
-      return (
-        <div className="App">
-          <Header
-            //userData={this.state.data}
-          />
-          {/* <Routes/> */}
-          <Container fluid>
-            <Row>
-              {/*<CreateMeme onAddTodo={this.handleAddTodo} />*/ }
-              <Col md={4} className="menuBox">
-                <Menu filterMemes={this.showMemesByCategory} />
-              </Col>
-              <Col sm={6} md={8}>
-                <article>
-                  <Meme
-                    userData={this.state.data}
-                    addVoteHandler={this.addVote.bind(this)}
-                    removeVoteHandler={this.removeVote.bind(this)}
-                  />
-                </article>
-              </Col>
-              <Col md={8}>
-                </Col>
-              <Col md={1}>
-                <Scroll></Scroll>
-              </Col>
-            </Row>
-          </Container>
-        </div>
-      );
-    }
+    return (
+      <div className="App">
+        <Header
+        //userData={this.state.data}
+        />
+        {/* <Routes/> */}
+        <Container fluid>
+          <Row>
+            {/*<CreateMeme onAddTodo={this.handleAddTodo} />*/}
+            <Col md={4} className="menuBox">
+              <Menu filterMemes={this.showMemesByCategory} />
+            </Col>
+            <Col sm={6} md={8}>
+              <article>
+                <Meme
+                  userData={this.state.data}
+                  addVoteHandler={this.addVote.bind(this)}
+                  removeVoteHandler={this.removeVote.bind(this)}
+                />
+              </article>
+            </Col>
+            <Col md={8}></Col>
+            <Col md={1}>
+              <Scroll></Scroll>
+            </Col>
+          </Row>
+        </Container>
+      </div>
+    );
   }
+}
 
 /* Google thing
 <div className="row mt-4">

@@ -6,41 +6,34 @@ export default function Menu(props) {
   return (
     <div>
       <Card style={{ width: "18rem" }} className=" boxMenu">
-
-          <Dropdown className="category">
-            <Dropdown.Toggle variant="success" id="dropdown-basic" >
-              Categoría
-            </Dropdown.Toggle>
-            <Dropdown.Menu>
-              <Dropdown.Item>
-                <div onClick={() => props.filterMemes("general")}>General</div>
-              </Dropdown.Item>
-              <Dropdown.Item>
-                <div onClick={() => props.filterMemes("random")}>Random</div>
-              </Dropdown.Item>
-              <Dropdown.Item>
-                <div onClick={() => props.filterMemes("política")}>
-                  Política
-                </div>
-              </Dropdown.Item>
-              <Dropdown.Item>
-                <div onClick={() => props.filterMemes("deportes")}>
-                  Deportes
-                </div>
-              </Dropdown.Item>
-              <Dropdown.Item>
-                <div onClick={() => props.filterMemes("animales")}>
-                  Animales
-                </div>
-              </Dropdown.Item>
-              <Dropdown.Item>
-                <div onClick={() => props.filterMemes("gaming")}>Gaming</div>
-              </Dropdown.Item>
-              <Dropdown.Item>
-                <div onClick={() => props.filterMemes("anime")}>Anime</div>
-              </Dropdown.Item>
-            </Dropdown.Menu>
-          </Dropdown>
+        <Dropdown className="category">
+          <Dropdown.Toggle variant="success" id="dropdown-basic">
+            Categoría
+          </Dropdown.Toggle>
+          <Dropdown.Menu>
+            <Dropdown.Item>
+              <div onClick={() => props.filterMemes("general")}>General</div>
+            </Dropdown.Item>
+            <Dropdown.Item>
+              <div onClick={() => props.filterMemes("random")}>Random</div>
+            </Dropdown.Item>
+            <Dropdown.Item>
+              <div onClick={() => props.filterMemes("política")}>Política</div>
+            </Dropdown.Item>
+            <Dropdown.Item>
+              <div onClick={() => props.filterMemes("deportes")}>Deportes</div>
+            </Dropdown.Item>
+            <Dropdown.Item>
+              <div onClick={() => props.filterMemes("animales")}>Animales</div>
+            </Dropdown.Item>
+            <Dropdown.Item>
+              <div onClick={() => props.filterMemes("gaming")}>Gaming</div>
+            </Dropdown.Item>
+            <Dropdown.Item>
+              <div onClick={() => props.filterMemes("anime")}>Anime</div>
+            </Dropdown.Item>
+          </Dropdown.Menu>
+        </Dropdown>
         <Nav className="flex-column">
           <Nav.Item>
             <Nav.Link className="active menuItem" href="">

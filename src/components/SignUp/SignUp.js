@@ -18,22 +18,22 @@ export default function SignUp() {
 
   function handleSubmit(event) {
     event.preventDefault();
-  
-  fetch("/users", {
-    method: "POST",
-    body: JSON.stringify({ email, password }),
-    headers: {
-      "Content-Type": "application/json",
-    },
-  })
-    .then((res) => res.json())
-    .then((data) => console.log(data))
-    .catch((e) => console.log(e));
 
-    setEmail('');
-    setPassword('');
-    setSecondPassword('');
-  }  
+    fetch("/users", {
+      method: "POST",
+      body: JSON.stringify({ email, password }),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
+      .then((res) => res.json())
+      .then((data) => console.log(data))
+      .catch((e) => console.log(e));
+
+    setEmail("");
+    setPassword("");
+    setSecondPassword("");
+  }
 
   return (
     <div className="SignUp">
@@ -49,7 +49,7 @@ export default function SignUp() {
             <Card.Title>
               Ingrese su email el cual será su nombre de usuario
             </Card.Title>
-            <FormGroup controlId="email" >
+            <FormGroup controlId="email">
               {/* <ControlLabel>Email</ControlLabel> */}
               <FormControl
                 autoFocus
@@ -59,7 +59,7 @@ export default function SignUp() {
               />
             </FormGroup>
             <Card.Title>Ingrese su password</Card.Title>
-            <FormGroup controlId="primaryPassword" >
+            <FormGroup controlId="primaryPassword">
               {/* <ControlLabel>Password</ControlLabel> */}
               <FormControl
                 value={password}
@@ -69,7 +69,7 @@ export default function SignUp() {
             </FormGroup>
 
             <Card.Title>Ingrese su password nuevamente</Card.Title>
-            <FormGroup controlId="secondPassword" >
+            <FormGroup controlId="secondPassword">
               {/* <ControlLabel>Password</ControlLabel> */}
               <FormControl
                 value={secondPassword}
@@ -82,7 +82,12 @@ export default function SignUp() {
               <Button variant="secondary" onClick={handleClose}>
                 Close
               </Button>
-              <Button block disabled={!validateForm()} onClick={handleClose} type="submit">
+              <Button
+                block
+                disabled={!validateForm()}
+                onClick={handleClose}
+                type="submit"
+              >
                 Sign Up
               </Button>
             </Modal.Footer>

@@ -1,11 +1,12 @@
-.cardPrimary{
-    margin-top: 10px;
+.cardPrimary {
+  margin-top: 10px;
 }
 
-.cardTitle, .cardSubtitle{
-    text-align: center;
+.cardTitle,
+.cardSubtitle {
+  text-align: center;
 }
 
-.botonesLike{
-    border-radius: 1em;
+.botonesLike {
+  border-radius: 1em;
 }

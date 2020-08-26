@@ -1,46 +1,44 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 
 class TodoForm extends Component {
-  constructor () {
+  constructor() {
     super();
     this.state = {
-      title: '',
-      image: '',
-      description: '',
-      category: 'General'
+      title: "",
+      image: "",
+      description: "",
+      category: "General",
     };
     this.handleInputChange = this.handleInputChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  handleSubmit= event=> {
+  handleSubmit = (event) => {
     event.preventDefault();
     this.props.onAddTodo(this.state);
     this.setState({
-      title: '',
-      image: '',
-      description: '',
-      category: 'General'
+      title: "",
+      image: "",
+      description: "",
+      category: "General",
     });
-  }
+  };
 
-  handleInputChange= event =>{
-    const {value, name} = event.target;
+  handleInputChange = (event) => {
+    const { value, name } = event.target;
     console.log(value, name);
     this.setState({
-      [name]: value
+      [name]: value,
     });
-  }
+  };
 
-  handleFileSelected= event =>{
-    const {value, name} = event.target;
+  handleFileSelected = (event) => {
+    const { value, name } = event.target;
     console.log(value, name);
     this.setState({
-      [name]: value
+      [name]: value,
     });
-  }
-    
-  
+  };
 
   render() {
     return (
@@ -54,7 +52,7 @@ class TodoForm extends Component {
               value={this.state.title}
               onChange={this.handleInputChange}
               placeholder="Title"
-              />
+            />
           </div>
           <div className="form-group">
             <input
@@ -64,9 +62,8 @@ class TodoForm extends Component {
               value={this.state.image}
               onChange={this.handleFileSelected}
               placeholder="Image"
-              />
-              <button  onClick={this.handleFileUpload}>Upload</button>
-              
+            />
+            <button onClick={this.handleFileUpload}>Upload</button>
           </div>
           <div className="form-group">
             <input
@@ -76,15 +73,15 @@ class TodoForm extends Component {
               value={this.state.description}
               onChange={this.handleInputChange}
               placeholder="Description"
-              />
+            />
           </div>
           <div className="form-group">
             <select
-                name="category"
-                className="form-control"
-                value={this.state.category}
-                onChange={this.handleInputChange}
-              >
+              name="category"
+              className="form-control"
+              value={this.state.category}
+              onChange={this.handleInputChange}
+            >
               <option>Animals</option>
               <option>Gaming</option>
               <option>General</option>
@@ -96,9 +93,8 @@ class TodoForm extends Component {
           </button>
         </form>
       </div>
-    )
+    );
   }
-
 }
 
 export default TodoForm;
