@@ -3,9 +3,9 @@ import { Button, FormGroup, FormControl, Card, Modal } from "react-bootstrap";
 import "./SignUp.css";
 
 export default function SignUp() {
+  const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [secondPassword, setSecondPassword] = useState("");
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
@@ -13,7 +13,7 @@ export default function SignUp() {
 
   function validateForm() {
     //funcion solamente hecha para debuguear
-    return email.length > 0 && password.length > 0 && secondPassword.length > 0;
+    return email.length > 0 && password.length > 0 && name.length > 0;
   }
 
   function handleSubmit(event) {
@@ -21,7 +21,7 @@ export default function SignUp() {
 
     fetch("/users", {
       method: "POST",
-      body: JSON.stringify({ email, password }),
+      body: JSON.stringify({ name, email, password }),
       headers: {
         "Content-Type": "application/json",
       },
@@ -29,10 +29,10 @@ export default function SignUp() {
       .then((res) => res.json())
       .then((data) => console.log(data))
       .catch((e) => console.log(e));
-
-    setEmail("");
-    setPassword("");
-    setSecondPassword("");
+      
+    // setName("");
+    // setEmail("");
+    // setPassword("");
   }
 
   return (
@@ -46,6 +46,15 @@ export default function SignUp() {
         </Modal.Header>
         <Modal.Body>
           <form onSubmit={handleSubmit}>
+          <Card.Title>Ingrese su nombre de usuario</Card.Title>
+            <FormGroup controlId="name">
+              {/* <ControlLabel>Password</ControlLabel> */}
+              <FormControl
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                type="text"
+              />
+            </FormGroup>
             <Card.Title>
               Ingrese su email el cual será su nombre de usuario
             </Card.Title>
@@ -59,21 +68,11 @@ export default function SignUp() {
               />
             </FormGroup>
             <Card.Title>Ingrese su password</Card.Title>
-            <FormGroup controlId="primaryPassword">
+            <FormGroup controlId="password">
               {/* <ControlLabel>Password</ControlLabel> */}
               <FormControl
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                type="password"
-              />
-            </FormGroup>
-
-            <Card.Title>Ingrese su password nuevamente</Card.Title>
-            <FormGroup controlId="secondPassword">
-              {/* <ControlLabel>Password</ControlLabel> */}
-              <FormControl
-                value={secondPassword}
-                onChange={(e) => setSecondPassword(e.target.value)}
                 type="password"
               />
             </FormGroup>
