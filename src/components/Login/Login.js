@@ -24,8 +24,10 @@ export default function Login(props) {
     return email.length > 0 && password.length > 0;
   }
 
-  const signIn = () => {
-    fetch("/users", {
+  function signIn(event) {
+    event.preventDefault();
+
+    fetch("/users/login", {
       method: "POST",
       body: JSON.stringify({ email, password }),
       headers: {
@@ -47,7 +49,7 @@ export default function Login(props) {
 
     setEmail("");
     setPassword("");
-  };
+  }
 
   /*function insertGoogleApi() {
     const script = document.createElement("script");
@@ -97,7 +99,7 @@ export default function Login(props) {
           <Modal.Title>Login In</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <Form>
+          <Form onSubmit={signIn}>
             <Card.Title>Ingrese su email</Card.Title>
             <FormGroup controlId="email">
               <FormControl
@@ -120,9 +122,7 @@ export default function Login(props) {
               <Button variant="secondary" onClick={handleClose}>
                 Close
               </Button>
-              <Button block type="submit">
-                Sign in with Google
-              </Button>
+              <Button>Sign in with Google</Button>
 
               <GoogleLogin
                 //client secret: YmddoOJzu-Pn6Z4-rZPuq0Bi
