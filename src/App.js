@@ -107,7 +107,8 @@ export default class App extends Component {
                 />
               </article>
             </Col>
-            <Col md={8}></Col>
+            <Col md={8}>
+            </Col>
             <Col md={1}>
               <Scroll></Scroll>
             </Col>

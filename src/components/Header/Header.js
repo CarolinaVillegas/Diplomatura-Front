@@ -3,7 +3,8 @@ import "./Header.css";
 import { Col, Row } from "react-bootstrap";
 import icon from "../../pictures/memeghost2.png";
 import Login from "../Login/Login";
-import SignUp from "../SignUp/SignUp";
+import SignUp2 from "../SignUp/SignUp2";
+
 export default function Header(props) {
   return (
     <header>
@@ -27,7 +28,7 @@ export default function Header(props) {
           <Login></Login>
         </Col>
         <Col md={1} className=" buttons">
-          <SignUp></SignUp>
+          <SignUp2></SignUp2>
         </Col>
       </Row>
     </header>

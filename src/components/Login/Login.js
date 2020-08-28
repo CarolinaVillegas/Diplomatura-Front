@@ -11,7 +11,7 @@ import "./Login.css";
 import GoogleLogin from "react-google-login";
 //import LogInG from "./components/LogIng";
 
-export default function Login(props) {
+export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [show, setShow] = useState(false);
@@ -42,11 +42,11 @@ export default function Login(props) {
       })
       .then((token) => {
         localStorage.setItem("token", token);
-        props.history.push("/admin");
         return;
       })
       .catch((e) => {});
 
+    handleClose();
     setEmail("");
     setPassword("");
   }
@@ -96,7 +96,7 @@ export default function Login(props) {
       </Button>
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
-          <Modal.Title>Login In</Modal.Title>
+          <Modal.Title>Log In</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <Form onSubmit={signIn}>
@@ -135,7 +135,7 @@ export default function Login(props) {
               <Button
                 block
                 disabled={!validateForm()}
-                onClick={signIn}
+                onClick={(signIn)}
                 type="submit"
               >
                 Log in

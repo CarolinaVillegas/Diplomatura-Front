@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+
 import { Button, FormGroup, FormControl, Card, Modal } from "react-bootstrap";
 import "./SignUp.css";
 
@@ -13,7 +14,7 @@ export default function SignUp() {
 
   function validateForm() {
     //funcion solamente hecha para debuguear
-    return email.length > 0 && password.length > 0 && name.length > 0;
+    return email.length > 0 && password.length > 7 && name.length > 0;
   }
 
   function handleSubmit(event) {
@@ -29,10 +30,10 @@ export default function SignUp() {
       .then((res) => res.json())
       .then((data) => console.log(data))
       .catch((e) => console.log(e));
-      
-    // setName("");
-    // setEmail("");
-    // setPassword("");
+
+    setName("");
+    setEmail("");
+    setPassword("");
   }
 
   return (
@@ -42,16 +43,16 @@ export default function SignUp() {
       </Button>
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
-          <Modal.Title>Sign Up</Modal.Title>
+          <Modal.Title>Create Account</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <form onSubmit={handleSubmit}>
-          <Card.Title>Ingrese su nombre de usuario</Card.Title>
+            <Card.Title>Ingrese su nombre de usuario</Card.Title>
             <FormGroup controlId="name">
               {/* <ControlLabel>Password</ControlLabel> */}
               <FormControl
                 value={name}
-                onChange={(e) => setName(e.target.value)}
+                required onChange={(e) => setName(e.target.value)}
                 type="text"
               />
             </FormGroup>
@@ -64,7 +65,7 @@ export default function SignUp() {
                 autoFocus
                 type="email"
                 value={email}
-                onChange={(e) => setEmail(e.target.value)}
+                required onChange={(e) => setEmail(e.target.value)}
               />
             </FormGroup>
             <Card.Title>Ingrese su password</Card.Title>
@@ -72,7 +73,7 @@ export default function SignUp() {
               {/* <ControlLabel>Password</ControlLabel> */}
               <FormControl
                 value={password}
-                onChange={(e) => setPassword(e.target.value)}
+                required onChange={(e) => setPassword(e.target.value)}
                 type="password"
               />
             </FormGroup>
