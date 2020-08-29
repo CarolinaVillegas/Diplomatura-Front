@@ -123,7 +123,7 @@ export default function Login() {
                 Close
               </Button>
               <Button>Sign in with Google</Button>
-
+{/*
               <GoogleLogin
                 //client secret: YmddoOJzu-Pn6Z4-rZPuq0Bi
                 clientId="282838883290-bvn9b680k2srb84k08jddmvv9e02qav4.apps.googleusercontent.com"
@@ -131,7 +131,7 @@ export default function Login() {
                 onSuccess={responseGoogle}
                 onFailure={responseGoogle}
                 cookiePolicy={"single_hosy_origin"}
-              />
+              />*/}
               <Button
                 block
                 disabled={!validateForm()}
