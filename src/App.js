@@ -28,38 +28,47 @@ export default class App extends Component {
   }
 
   addVote(meme) {
-    const newData = this.state.data.map((m) => {
-      if (m.title === meme.title) {
-        console.log("ok");
-        return {
-          ...m,
-          points: m.points + 1,
+    if (localStorage.getItem("email")) {
+      const nuevaLista = [...this.state.data]; // copia de los datos
+
+      const indice = nuevaLista.findIndex((m) => m._id === meme._id);
+
+      fetch("/memes/" + nuevaLista[indice]._id + "?increase=true", {
+        method: "PATCH",
+        headers: {
+          "x-access-token": localStorage.getItem("token"),
+        },
+      }).then((e) => {
+        nuevaLista[indice] = {
+          ...nuevaLista[indice],
+          points: nuevaLista[indice].points + 1,
         };
-      }
 
-      return {
-        ...m,
-      };
-    });
-
-    this.setState({ data: newData });
+        this.setState({ data: nuevaLista });
+      });
+    }
   }
 
   removeVote(meme) {
-    const newData = this.state.data.map((m) => {
-      if (m.title === meme.title) {
-        return {
-          ...m,
-          points: m.points - 1,
+    if (localStorage.getItem("email")) {
+      const nuevaLista = [...this.state.data]; // copia de los datos
+
+      const indice = nuevaLista.findIndex((m) => m._id === meme._id);
+
+      fetch("/memes/" + nuevaLista[indice]._id + "?increase=false", {
+        method: "PATCH",
+        headers: {
+          "x-access-token": localStorage.getItem("token"),
+        },
+      }).then((e) => {
+        nuevaLista[indice] = {
+          ...nuevaLista[indice],
+          points: nuevaLista[indice].points - 1,
         };
-      }
 
-      return {
-        ...m,
-      };
-    });
-
-    this.setState({ data: newData });
+        this.setState({ data: nuevaLista });
+      });
+    }
   }
 
   componentDidMount() {
