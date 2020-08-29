@@ -30,9 +30,10 @@ export default class App extends Component {
   addVote(meme) {
     const newData = this.state.data.map((m) => {
       if (m.title === meme.title) {
+        console.log("ok");
         return {
           ...m,
-          votes: m.votes + 1,
+          points: m.points + 1,
         };
       }
 
@@ -49,7 +50,7 @@ export default class App extends Component {
       if (m.title === meme.title) {
         return {
           ...m,
-          votes: m.votes - 1,
+          points: m.points - 1,
         };
       }
 
@@ -64,8 +65,8 @@ export default class App extends Component {
   componentDidMount() {
     fetch("/memes")
       .then((rawMemes) => rawMemes.json())
-      .then((data) => {
-        console.log(data);
+      .then((memes) => {
+        const data = memes.reverse();
         this.setState({ data });
       });
   }
@@ -107,8 +108,7 @@ export default class App extends Component {
                 />
               </article>
             </Col>
-            <Col md={8}>
-            </Col>
+            <Col md={8}></Col>
             <Col md={1}>
               <Scroll></Scroll>
             </Col>

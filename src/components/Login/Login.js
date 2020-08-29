@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import {
+  Alert,
   Form,
   Button,
   FormGroup,
@@ -15,6 +16,7 @@ export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [show, setShow] = useState(false);
+  const [badLogin, setBadLogin] = useState(false);
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -36,18 +38,25 @@ export default function Login() {
     })
       .then((response) => {
         if (response.ok) {
+          // HTTP status code between 200-299
           return response.json();
+        } else {
+          setBadLogin(true);
+          return {};
         }
-        throw new Error("Login inválido...");
       })
       .then(({ token }) => {
-        localStorage.setItem("token", token);
-        return;
+        if (token) {
+          if (badLogin) {
+            setBadLogin(false);
+          }
+          localStorage.setItem("email", email);
+          localStorage.setItem("token", token);
+          handleClose();
+          setEmail("");
+          setPassword("");
+        }
       });
-
-    handleClose();
-    setEmail("");
-    setPassword("");
   }
 
   /*function insertGoogleApi() {
@@ -89,11 +98,11 @@ export default function Login() {
   }
 
   return (
-    <div className="Login">
+    <React.Fragment>
       <Button variant="primary" onClick={handleShow}>
         Log in
       </Button>
-      <Modal show={show} onHide={handleClose}>
+      <Modal show={show} onHide={handleClose} className="Login-Form">
         <Modal.Header closeButton>
           <Modal.Title>Log In</Modal.Title>
         </Modal.Header>
@@ -102,9 +111,9 @@ export default function Login() {
             <Card.Title>Ingrese su email</Card.Title>
             <FormGroup controlId="email">
               <FormControl
-                autoFocus
-                type="email"
+                autoComplete="email"
                 value={email}
+                type="email"
                 onChange={(e) => setEmail(e.target.value)}
               />
             </FormGroup>
@@ -112,25 +121,19 @@ export default function Login() {
             <FormGroup controlId="password">
               {/* <ControlLabel>Password</ControlLabel> */}
               <FormControl
+                autoComplete="current-password"
                 value={password}
-                onChange={(e) => setPassword(e.target.value)}
                 type="password"
+                onChange={(e) => setPassword(e.target.value)}
               />
             </FormGroup>
+            <Alert
+              variant="danger"
+              style={{ display: badLogin ? "block" : "none" }}
+            >
+              El email o la contraseña ingresados son incorrectos.
+            </Alert>
             <Modal.Footer>
-              <Button variant="secondary" onClick={handleClose}>
-                Close
-              </Button>
-              <Button>Sign in with Google</Button>
-              {/*
-              <GoogleLogin
-                //client secret: YmddoOJzu-Pn6Z4-rZPuq0Bi
-                clientId="282838883290-bvn9b680k2srb84k08jddmvv9e02qav4.apps.googleusercontent.com"
-                buttonText="Log in with Google"
-                onSuccess={responseGoogle}
-                onFailure={responseGoogle}
-                cookiePolicy={"single_hosy_origin"}
-              />*/}
               <Button
                 block
                 disabled={!validateForm()}
@@ -139,10 +142,23 @@ export default function Login() {
               >
                 Log in
               </Button>
+              <Button>Sign in with Google</Button>
+              {/*
+              <GoogleLogin
+              //client secret: YmddoOJzu-Pn6Z4-rZPuq0Bi
+              clientId="282838883290-bvn9b680k2srb84k08jddmvv9e02qav4.apps.googleusercontent.com"
+              buttonText="Log in with Google"
+              onSuccess={responseGoogle}
+              onFailure={responseGoogle}
+              cookiePolicy={"single_hosy_origin"}
+            />*/}
+              <Button variant="secondary" onClick={handleClose}>
+                Close
+              </Button>
             </Modal.Footer>
           </Form>
         </Modal.Body>
       </Modal>
-    </div>
+    </React.Fragment>
   );
 }
