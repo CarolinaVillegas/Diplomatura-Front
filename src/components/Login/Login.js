@@ -31,7 +31,7 @@ export default function Login({ setLogin }) {
 
   function signIn(event) {
     event.preventDefault();
-
+    console.log(email, password)
     fetch("/users/login", {
       method: "POST",
       body: JSON.stringify({ email, password }),
@@ -156,9 +156,7 @@ export default function Login({ setLogin }) {
               onFailure={responseGoogle}
               cookiePolicy={"single_hosy_origin"}
             />*/}
-              <Button variant="secondary" onClick={handleClose}>
-                Close
-              </Button>
+              
             </Modal.Footer>
           </Form>
         </Modal.Body>

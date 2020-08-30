@@ -79,9 +79,7 @@ export default function SignUp() {
             </FormGroup>
 
             <Modal.Footer>
-              <Button variant="secondary" onClick={handleClose}>
-                Close
-              </Button>
+              
               <Button
                 block
                 disabled={!validateForm()}

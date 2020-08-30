@@ -213,9 +213,7 @@ class SignUp2 extends Component {
                 <div className="invalid-feedback">{password.error}</div>
               </FormGroup>
               <Modal.Footer>
-                <Button variant="secondary" onClick={() => this.setState({ show: false })}>
-                  Close
-                </Button>
+                
                 <Button
                   type="submit"
                   variant="secondary"
