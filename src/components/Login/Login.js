@@ -12,7 +12,9 @@ import "./Login.css";
 import GoogleLogin from "react-google-login";
 //import LogInG from "./components/LogIng";
 
-export default function Login() {
+let login;
+
+export default function Login({ setLogin }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [show, setShow] = useState(false);
@@ -20,6 +22,7 @@ export default function Login() {
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+  login = setLogin;
 
   function validateForm() {
     //funcion solamente hecha para debuguear
@@ -52,6 +55,7 @@ export default function Login() {
           }
           localStorage.setItem("email", email);
           localStorage.setItem("token", token);
+          login();
           handleClose();
           setEmail("");
           setPassword("");

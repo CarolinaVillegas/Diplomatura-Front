@@ -54,3 +54,7 @@ header {
     margin-left: 180px;
   }
 }
+
+h1 {
+  display: inline;
+}

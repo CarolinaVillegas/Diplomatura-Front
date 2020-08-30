@@ -24,6 +24,7 @@ export default class App extends Component {
     this.state = {
       data,
       currentUser: null,
+      userIsLoggedIn: false,
     };
   }
 
@@ -71,7 +72,20 @@ export default class App extends Component {
     }
   }
 
+  toggleUserStatus() {
+    if (this.state.userIsLoggedIn) {
+      localStorage.clear();
+      this.setState({ userIsLoggedIn: false });
+    } else {
+      this.setState({ userIsLoggedIn: true });
+    }
+  }
+
   componentDidMount() {
+    if (localStorage.getItem("email")) {
+      this.setState({ userIsLoggedIn: true });
+    }
+
     fetch("/memes")
       .then((rawMemes) => rawMemes.json())
       .then((memes) => {
@@ -99,7 +113,8 @@ export default class App extends Component {
     return (
       <div className="App">
         <Header
-        //userData={this.state.data}
+          userLoggedIn={this.state.userIsLoggedIn}
+          toggleStatus={this.toggleUserStatus.bind(this)}
         />
         {/* <Routes/> */}
         <Container fluid>
