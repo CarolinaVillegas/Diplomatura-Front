@@ -30,12 +30,12 @@ class SignUp2 extends Component {
     this.state = initialState;
   }
 
-//   handleClose() {
-//     this.setState({ show: false });
-//   }
-//   handleShow() {
-//     this.setState({ show: true });
-//   }
+  //   handleClose() {
+  //     this.setState({ show: false });
+  //   }
+  //   handleShow() {
+  //     this.setState({ show: true });
+  //   }
 
   handleBlur(validationFunc, evt) {
     const field = evt.target.name;
@@ -55,7 +55,6 @@ class SignUp2 extends Component {
     return;
   }
 
-  
   handleChange(validationFunc, evt) {
     const field = evt.target.name;
     const fieldVal = evt.target.value;
@@ -68,7 +67,6 @@ class SignUp2 extends Component {
     }));
   }
 
-
   handleSubmit(evt) {
     evt.preventDefault();
     // validate all fields
@@ -76,27 +74,43 @@ class SignUp2 extends Component {
     const nameError = validateFields.validateName(name.value);
     const emailError = validateFields.validateEmail(email.value);
     const passwordError = validateFields.validatePassword(password.value);
-    
-    fetch("/users", {
-      method: "POST",
-      body: JSON.stringify({ name, email, password }),
-      headers: {
-        "Content-Type": "application/json",
-      },
-    })
-      .then((res) => res.json())
-      .then((data) => console.log(data))
-      .catch((e) => console.log(e));
-      
+
     if ([nameError, emailError, passwordError].every((e) => e === false)) {
       // no errors submit the form
       console.log("success");
 
-      // clear state and show all fields are validated
-      this.setState({ ...initialState, allFieldsValidated: true });
-      
-      this.showAllFieldsValidated();
-    //   this.setState({ show: false })
+      fetch("/users", {
+        method: "POST",
+        body: JSON.stringify({
+          name: name.value,
+          email: email.value,
+          password: password.value,
+        }),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      })
+        .then((response) => {
+          if (response.ok) {
+            // clear state and show all fields are validated
+            this.setState({ ...initialState, allFieldsValidated: true });
+
+            this.showAllFieldsValidated();
+            //   this.setState({ show: false })
+
+            // HTTP status code between 200-299
+            return response.json();
+          } else {
+            return {};
+          }
+        })
+        .then((userData) => {
+          if (userData) {
+            localStorage.setItem("name", userData.user.name);
+            localStorage.setItem("email", userData.user.email);
+            localStorage.setItem("token", userData.token);
+          }
+        });
     } else {
       // update the state with errors
       this.setState((state) => ({
@@ -132,7 +146,10 @@ class SignUp2 extends Component {
         <Button variant="primary" onClick={() => this.setState({ show: true })}>
           Sign Up
         </Button>
-        <Modal show={this.state.show} onHide={() => this.setState({ show: false })}>
+        <Modal
+          show={this.state.show}
+          onHide={() => this.setState({ show: false })}
+        >
           <Modal.Header closeButton>
             <Modal.Title>Create Account</Modal.Title>
           </Modal.Header>
@@ -213,7 +230,6 @@ class SignUp2 extends Component {
                 <div className="invalid-feedback">{password.error}</div>
               </FormGroup>
               <Modal.Footer>
-                
                 <Button
                   type="submit"
                   variant="secondary"
