@@ -7,16 +7,17 @@ import "./App.css";
 // data
 import { data } from "./data.json";
 import { Container, Row, Col } from "react-bootstrap";
+
 // subcomponents
-import CreateMeme from "./components/CreateMeme";
+//import CreateMeme from "./components/CreateMeme";
 import Header from "./components/Header/Header";
 import Meme from "./components/Meme/Meme";
 import Menu from "./components/Menu/Menu";
-import Login from "./components/Login/Login";
-import SignUp from "./components/SignUp/SignUp";
-import Scroll from "./components/Scroll";
-import Routes from "./Routes/routes";
-import { Router } from "react-router-dom";
+//import Login from "./components/Login/Login";
+//import SignUp from "./components/SignUp/SignUp";
+import Scroll from "./components/Others/Scroll";
+//import Routes from "./Routes/routes";
+//import { Router } from "react-router-dom";
 
 export default class App extends Component {
   constructor(props) {

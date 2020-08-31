@@ -46,7 +46,7 @@ export default function SignUp() {
           <Modal.Title>Create Account</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <form onSubmit={handleSubmit}>
+          <form className = "form" onSubmit={handleSubmit}>
             <Card.Title>Ingrese su nombre de usuario</Card.Title>
             <FormGroup controlId="name">
               {/* <ControlLabel>Password</ControlLabel> */}

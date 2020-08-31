@@ -4,7 +4,7 @@ import { Col, Row, Container } from "react-bootstrap";
 import icon from "../../pictures/memeghost2.png";
 import Login from "../Login/Login";
 import Logout from "../Logout/Logout";
-import SignUp2 from "../SignUp/SignUp2";
+import SignUp from "../SignUp/SignUp";
 
 export default function Header({ userLoggedIn, toggleStatus }) {
   return (
@@ -28,16 +28,18 @@ export default function Header({ userLoggedIn, toggleStatus }) {
           </Col>
           {userLoggedIn ? (
             <React.Fragment>
-              <Col md="auto">{localStorage.getItem("email")}</Col>
-              <Logout setLogout={toggleStatus} />
+              <Col md={1} className="emailLogin">
+                {localStorage.getItem("email")}
+              </Col>
+              <Logout className=" logout" setLogout={toggleStatus} />
             </React.Fragment>
           ) : (
             <Row className="visitor-function">
-              <Col md={5} className=" buttons">
+              <Col md={5} className=" loginIn">
                 <Login setLogin={toggleStatus}></Login>
               </Col>
-              <Col md={5} className=" buttons">
-                <SignUp2></SignUp2>
+              <Col md={5} className=" signUp">
+                <SignUp></SignUp>
               </Col>
             </Row>
           )}

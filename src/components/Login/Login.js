@@ -9,7 +9,7 @@ import {
   Modal,
 } from "react-bootstrap";
 import "./Login.css";
-import GoogleLogin from "react-google-login";
+//import GoogleLogin from "react-google-login";
 //import LogInG from "./components/LogIng";
 
 let login;
@@ -106,12 +106,12 @@ export default function Login({ setLogin }) {
       <Button variant="primary" onClick={handleShow}>
         Log in
       </Button>
-      <Modal show={show} onHide={handleClose} className="Login-Form">
+      <Modal show={show} onHide={handleClose} >
         <Modal.Header closeButton>
           <Modal.Title>Log In</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <Form onSubmit={signIn}>
+          <Form className="Login-Form" onSubmit={signIn}>
             <Card.Title>Ingrese su email</Card.Title>
             <FormGroup controlId="email">
               <FormControl
