@@ -14,7 +14,7 @@ import Upload from "./Upload.js";
 
 let login;
 
-export default function CreateMeme({ }) {
+export default function CreateMeme({}) {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [category, setCategory] = useState("");
@@ -24,11 +24,27 @@ export default function CreateMeme({ }) {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
-  function logIn(event) {
-   
+  function handleSave(event) {
+    event.preventDefault();
+
+    const formData = new FormData();
+    const fileField = document.querySelector("input[type='file']");
+
+    formData.append("title", title);
+    formData.append("category", "anime");
+    formData.append("img_source", fileField.files[0]);
+
+    fetch("/memes", {
+      method: "POST",
+      body: formData,
+      headers: { "x-access-token": localStorage.getItem("token") },
+    })
+      .then((data) => data.json())
+      .then((response) => console.log(response))
+      .catch((e) => console.log("Error: ", e));
   }
 
-return(
+  return (
     <React.Fragment>
       <Button variant="primary" onClick={handleShow}>
         Create meme!
@@ -58,13 +74,13 @@ return(
 
             <Card.Title>Category</Card.Title>
             <Card.Title>Imagen</Card.Title>
-            <Upload/>
+            <Form.File id="image-file" label="Seleccionar imagen" custom />
 
             <Modal.Footer>
               <Button
                 block
                 // disabled={!validateForm()}
-                onClick={logIn}
+                onClick={handleSave}
                 type="submit"
               >
                 Save

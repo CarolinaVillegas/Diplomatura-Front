@@ -31,7 +31,7 @@ export default function Login({ setLogin }) {
 
   function logIn(event) {
     event.preventDefault();
-    console.log(email, password)
+
     fetch("/users/login", {
       method: "POST",
       body: JSON.stringify({ email, password }),
@@ -106,7 +106,7 @@ export default function Login({ setLogin }) {
       <Button variant="primary" onClick={handleShow}>
         Log in
       </Button>
-      <Modal show={show} onHide={handleClose} >
+      <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
           <Modal.Title>Log In</Modal.Title>
         </Modal.Header>
@@ -156,7 +156,6 @@ export default function Login({ setLogin }) {
               onFailure={responseGoogle}
               cookiePolicy={"single_hosy_origin"}
             />*/}
-              
             </Modal.Footer>
           </Form>
         </Modal.Body>
