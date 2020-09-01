@@ -1,11 +1,14 @@
 import React from "react";
 import { Dropdown, Card, Nav } from "react-bootstrap";
 import "./Menu.css";
+import CreateMeme from "../CreateMeme/CreateMeme";
 
 export default function Menu(props) {
   return (
     <div>
       <Card style={{ width: "18rem" }} className=" boxMenu">
+        <CreateMeme />
+
         <Dropdown className="category">
           <Dropdown.Toggle variant="success" id="dropdown-basic">
             Categoría
