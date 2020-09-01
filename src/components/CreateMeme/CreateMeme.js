@@ -23,7 +23,7 @@ export default function CreateMeme({ }) {
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
-  //login = setLogin;
+
   function logIn(event) {
    
   }
