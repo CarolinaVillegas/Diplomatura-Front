@@ -29,7 +29,7 @@ export default function Login({ setLogin }) {
     return email.length > 0 && password.length > 0;
   }
 
-  function signIn(event) {
+  function logIn(event) {
     event.preventDefault();
     console.log(email, password)
     fetch("/users/login", {
@@ -111,7 +111,7 @@ export default function Login({ setLogin }) {
           <Modal.Title>Log In</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <Form className="Login-Form" onSubmit={signIn}>
+          <Form className="Login-Form" onSubmit={logIn}>
             <Card.Title>Ingrese su email</Card.Title>
             <FormGroup controlId="email">
               <FormControl
@@ -141,7 +141,7 @@ export default function Login({ setLogin }) {
               <Button
                 block
                 disabled={!validateForm()}
-                onClick={signIn}
+                onClick={logIn}
                 type="submit"
               >
                 Log in

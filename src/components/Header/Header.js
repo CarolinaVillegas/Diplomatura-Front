@@ -2,6 +2,7 @@ import React from "react";
 import "./Header.css";
 import { Col, Row, Container } from "react-bootstrap";
 import icon from "../../pictures/memeghost2.png";
+import userImg from "../../pictures/user.png";
 import Login from "../Login/Login";
 import Logout from "../Logout/Logout";
 import SignUp from "../SignUp/SignUp";
@@ -29,6 +30,7 @@ export default function Header({ userLoggedIn, toggleStatus }) {
           {userLoggedIn ? (
             <React.Fragment>
               <Col md={1} className="emailLogin">
+              <img className="icono user" alt="" src={userImg} />
                 {localStorage.getItem("email")}
               </Col>
               <Logout className=" logout" setLogout={toggleStatus} />
