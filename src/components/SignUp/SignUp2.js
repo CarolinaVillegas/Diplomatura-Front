@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { validateFields } from "../../Validation";
+import { validateFields } from "../Others/Validation";
 import { Button, FormGroup, FormControl, Modal } from "react-bootstrap";
 import classnames from "classnames";
 

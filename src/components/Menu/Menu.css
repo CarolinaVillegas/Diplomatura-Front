@@ -12,13 +12,24 @@
   font-family: Arial, Helvetica, sans-serif;
 }
 
+.boxMenu{
+  position: fixed;
+  left: 30px;
+  top: 22%;
+  width: 8em;
+}
+
 .category {
   margin-top: 5px;
   vertical-align: middle;
   text-align: center;
-  margin-bottom: 50px;
+  margin-bottom: 30px;
 }
 
+
 .boxTerms {
-  margin-top: 70px;
+  position: fixed;
+  left: 30px;
+  top: 65%;
+  width: 8em;
 }

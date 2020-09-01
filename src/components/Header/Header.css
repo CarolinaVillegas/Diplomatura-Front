@@ -4,6 +4,7 @@ header {
   background: #323232;
   color: white;
   font-size: 30px;
+  flex-shrink: 0;
 }
 
 .title {
@@ -20,15 +21,30 @@ header {
 }
 
 .loginIn,
-.signUp, .logout {
+.signUp,
+.logout,
+.createMeme {
   border-radius: 5px;
-  margin-right: 5px;
   font-size: 18px;
-  padding: 0.5rem;
+  padding: 0.8rem;
   text-align: center;
 }
 
-.emailLogin{
+.loginIn {
+  margin-right: 1rem;
+}
+.createMeme {
+  margin-right: 2rem;
+}
+
+.createAndLogout {
+  margin-left: -4rem;
+}
+.loginSignUp {
+  margin-left: -3rem;
+}
+
+.emailLogin {
   padding: 1rem;
   font-size: 15px;
   justify-content: center;

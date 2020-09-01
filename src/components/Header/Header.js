@@ -6,6 +6,7 @@ import userImg from "../../pictures/user.png";
 import Login from "../Login/Login";
 import Logout from "../Logout/Logout";
 import SignUp from "../SignUp/SignUp";
+import CreateMeme from "../CreateMeme/CreateMeme";
 
 export default function Header({ userLoggedIn, toggleStatus }) {
   return (
@@ -29,14 +30,21 @@ export default function Header({ userLoggedIn, toggleStatus }) {
           </Col>
           {userLoggedIn ? (
             <React.Fragment>
-              <Col md={1} className="emailLogin">
+              <Row className="visitor-function createAndLogout">
+                {/* <Col md={1} className="emailLogin">
               <img className="icono user" alt="" src={userImg} />
                 {localStorage.getItem("email")}
-              </Col>
-              <Logout className=" logout" setLogout={toggleStatus} />
+              </Col> */}
+                <Col md={5} className=" createMeme">
+                  <CreateMeme />
+                </Col>
+                <Col md={5} className=" logout">
+                  <Logout setLogout={toggleStatus} />
+                </Col>
+              </Row>
             </React.Fragment>
           ) : (
-            <Row className="visitor-function">
+            <Row className="visitor-function loginSignUp">
               <Col md={5} className=" loginIn">
                 <Login setLogin={toggleStatus}></Login>
               </Col>

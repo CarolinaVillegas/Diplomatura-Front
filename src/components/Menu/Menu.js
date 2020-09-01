@@ -1,39 +1,49 @@
 import React from "react";
-import { Dropdown, Card, Nav } from "react-bootstrap";
+import { Dropdown, Card, Nav, Col, Row } from "react-bootstrap";
 import "./Menu.css";
-import CreateMeme from "../CreateMeme/CreateMeme";
+import userImg from "../../pictures/user.png";
 
-export default function Menu(props) {
+export default function Menu({ userLoggedIn, filterMemes }) {
   return (
     <div>
       <Card style={{ width: "18rem" }} className=" boxMenu">
-        <CreateMeme />
-
+        {userLoggedIn ? (
+          <Row>
+            <Col className="positionIconoUser">
+              <img className="icono user" alt="" src={userImg} />
+              </Col>
+              <Col className="emailName">
+              {localStorage.getItem("email")}
+              </Col>
+            </Row>
+        ) : (
+          <Col></Col>
+        )}
         <Dropdown className="category">
           <Dropdown.Toggle variant="success" id="dropdown-basic">
             Categoría
           </Dropdown.Toggle>
           <Dropdown.Menu>
             <Dropdown.Item>
-              <div onClick={() => props.filterMemes("general")}>General</div>
+              <div onClick={() => filterMemes("general")}>General</div>
             </Dropdown.Item>
             <Dropdown.Item>
-              <div onClick={() => props.filterMemes("random")}>Random</div>
+              <div onClick={() => filterMemes("random")}>Random</div>
             </Dropdown.Item>
             <Dropdown.Item>
-              <div onClick={() => props.filterMemes("política")}>Política</div>
+              <div onClick={() => filterMemes("política")}>Política</div>
             </Dropdown.Item>
             <Dropdown.Item>
-              <div onClick={() => props.filterMemes("deportes")}>Deportes</div>
+              <div onClick={() => filterMemes("deportes")}>Deportes</div>
             </Dropdown.Item>
             <Dropdown.Item>
-              <div onClick={() => props.filterMemes("animales")}>Animales</div>
+              <div onClick={() => filterMemes("animales")}>Animales</div>
             </Dropdown.Item>
             <Dropdown.Item>
-              <div onClick={() => props.filterMemes("gaming")}>Gaming</div>
+              <div onClick={() => filterMemes("gaming")}>Gaming</div>
             </Dropdown.Item>
             <Dropdown.Item>
-              <div onClick={() => props.filterMemes("anime")}>Anime</div>
+              <div onClick={() => filterMemes("anime")}>Anime</div>
             </Dropdown.Item>
           </Dropdown.Menu>
         </Dropdown>

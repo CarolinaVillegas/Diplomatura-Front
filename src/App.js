@@ -122,10 +122,13 @@ export default class App extends Component {
           <Row>
             {/*<CreateMeme onAddTodo={this.handleAddTodo} />*/}
             <Col md={4} className="menuBox">
-              <Menu filterMemes={this.showMemesByCategory} />
+              <Menu
+                filterMemes={this.showMemesByCategory}
+                userLoggedIn={this.state.userIsLoggedIn}
+              />
             </Col>
             <Col sm={6} md={8}>
-              <article>
+              <article className="memePosition">
                 <Meme
                   userData={this.state.data}
                   addVoteHandler={this.addVote.bind(this)}
@@ -133,7 +136,6 @@ export default class App extends Component {
                 />
               </article>
             </Col>
-            <Col md={8}></Col>
             <Col md={1}>
               <Scroll></Scroll>
             </Col>
