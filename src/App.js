@@ -15,6 +15,7 @@ import Meme from "./components/Meme/Meme";
 import Menu from "./components/Menu/Menu";
 //import Login from "./components/Login/Login";
 //import SignUp from "./components/SignUp/SignUp";
+import Comments from "./components/Comments/Comments";
 import Scroll from "./components/Others/Scroll";
 //import Routes from "./Routes/routes";
 //import { Router } from "react-router-dom";
@@ -134,6 +135,7 @@ export default class App extends Component {
                   addVoteHandler={this.addVote.bind(this)}
                   removeVoteHandler={this.removeVote.bind(this)}
                 />
+                <Comments></Comments>
               </article>
             </Col>
             <Col md={1}>
