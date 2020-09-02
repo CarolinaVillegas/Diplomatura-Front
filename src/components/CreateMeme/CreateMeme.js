@@ -9,6 +9,8 @@ import {
   Modal,
   Label,
 } from "react-bootstrap";
+
+import "./CreateMeme.css";
 //import Upload from "./Upload.js";
 //import GoogleLogin from "react-google-login";
 //import LogInG from "./components/LogIng";
@@ -48,7 +50,7 @@ export default function CreateMeme({}) {
   }
 
   return (
-    <React.Fragment>
+    <React.Fragment >
       <Button variant="primary" onClick={handleShow}>
         Upload meme
       </Button>
@@ -75,7 +77,7 @@ export default function CreateMeme({}) {
               />
             </FormGroup>
             <Form.Group controlId="category">
-              <Form.Label>Category</Form.Label>
+            <Card.Title>Category</Card.Title>
               <Form.Control
                 as="select"
                 value={category}
