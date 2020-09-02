@@ -27,6 +27,9 @@ export default function Meme({ userData, addVoteHandler, removeVoteHandler }) {
             >
               DisLike
             </Button>
+            <Button className = "buttonComment">
+              Comment 
+            </Button>
           </Card.Footer>
         </Card.Body>
       </Card>
