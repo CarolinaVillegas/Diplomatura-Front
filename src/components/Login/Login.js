@@ -48,12 +48,13 @@ export default function Login({ setLogin }) {
           return {};
         }
       })
-      .then(({ token }) => {
+      .then(({ user, token }) => {
         if (token) {
           if (badLogin) {
             setBadLogin(false);
           }
-          localStorage.setItem("email", email);
+          localStorage.setItem("name", user.name);
+          localStorage.setItem("email", user.email);
           localStorage.setItem("token", token);
           login();
           handleClose();
