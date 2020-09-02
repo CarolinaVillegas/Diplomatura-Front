@@ -7,18 +7,13 @@ export default function Menu({ userLoggedIn, filterMemes }) {
   return (
     <div>
       <Card style={{ width: "18rem" }} className=" boxMenu">
-        {userLoggedIn ? (
+        {/*userLoggedIn ? (
           <Row>
-            <Col className="positionIconoUser">
-              <img className="icono user" alt="" src={userImg} />
-              </Col>
-              <Col className="emailName">
-              {(localStorage.getItem("email")).substring(0, localStorage.getItem("email").lastIndexOf("@"))}
-              </Col>
+            
             </Row>
         ) : (
           <Col></Col>
-        )}
+        )*/}
         <Dropdown className="category">
           <Dropdown.Toggle variant="success" id="dropdown-basic">
             Categoría

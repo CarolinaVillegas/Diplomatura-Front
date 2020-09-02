@@ -21,30 +21,40 @@ export default function Header({ userLoggedIn, toggleStatus }) {
       </nav> */}
       <Container>
         <Row>
-          <Col md={10} className="titleAndIcon">
-            <h1 className="title">
-              {" "}
-              Meme Ghost
-              <img className="icono" alt="" src={icon} />
-            </h1>
-          </Col>
           {userLoggedIn ? (
             <React.Fragment>
               <Row className="visitor-function createAndLogout">
-                {/* <Col md={1} className="emailLogin">
-              <img className="icono user" alt="" src={userImg} />
-                {localStorage.getItem("email")}
-              </Col> */}
-                <Col md={5} className=" createMeme">
+                
+                <Col className="emailLogin">
+                  <img className="icono user" alt="" src={userImg} />
+                  {localStorage.getItem("email").substring(0,localStorage.getItem("email").lastIndexOf("@"))}
+
                   <CreateMeme />
                 </Col>
-                <Col md={5} className=" logout">
+
+                <Col xs={7} className="titleAndIcon">
+                  <h1 className="title">
+                    {" "}
+                    Meme Ghost
+                    <img className="icono" alt="" src={icon} />
+                  </h1>
+                </Col>
+
+                <Col className=" logout">
                   <Logout setLogout={toggleStatus} />
                 </Col>
               </Row>
             </React.Fragment>
           ) : (
             <Row className="visitor-function loginSignUp">
+              <Col md={10} className="titleAndIcon">
+                <h1 className="title">
+                  {" "}
+                  Meme Ghost
+                  <img className="icono" alt="" src={icon} />
+                </h1>
+              </Col>
+
               <Col md={5} className=" loginIn">
                 <Login setLogin={toggleStatus}></Login>
               </Col>
