@@ -8,7 +8,7 @@ import {
   Card,
   Modal,
 } from "react-bootstrap";
-import Upload from "./Upload.js";
+//import Upload from "./Upload.js";
 //import GoogleLogin from "react-google-login";
 //import LogInG from "./components/LogIng";
 
@@ -47,11 +47,11 @@ export default function CreateMeme({}) {
   return (
     <React.Fragment>
       <Button variant="primary" onClick={handleShow}>
-        Create meme!
+        Upload meme
       </Button>
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
-          <Modal.Title>Create you meme!</Modal.Title>
+          <Modal.Title>Upload your own meme!</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <Form className="CreateMeme-Form" /*onSubmit={logIn}*/>

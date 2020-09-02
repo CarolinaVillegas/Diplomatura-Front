@@ -13,7 +13,7 @@ export default function Menu({ userLoggedIn, filterMemes }) {
               <img className="icono user" alt="" src={userImg} />
               </Col>
               <Col className="emailName">
-              {localStorage.getItem("email")}
+              {(localStorage.getItem("email")).substring(0, localStorage.getItem("email").lastIndexOf("@"))}
               </Col>
             </Row>
         ) : (
