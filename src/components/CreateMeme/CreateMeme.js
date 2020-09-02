@@ -20,6 +20,7 @@ export default function CreateMeme({}) {
   const [category, setCategory] = useState("");
   const [show, setShow] = useState(false);
   const [badLogin, setBadLogin] = useState(false);
+ // const forceUpdate = React.useCallback(() => updateState({}), []);
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -33,6 +34,7 @@ export default function CreateMeme({}) {
     formData.append("title", title);
     formData.append("category", "anime");
     formData.append("img_source", fileField.files[0]);
+    
 
     fetch("/memes", {
       method: "POST",
@@ -42,6 +44,7 @@ export default function CreateMeme({}) {
       .then((data) => data.json())
       .then((response) => console.log(response))
       .catch((e) => console.log("Error: ", e));
+
   }
 
   return (
@@ -79,11 +82,16 @@ export default function CreateMeme({}) {
             <Modal.Footer>
               <Button
                 block
-                // disabled={!validateForm()}
                 onClick={handleSave}
                 type="submit"
               >
-                Save
+                Upload
+              </Button>
+              <Button
+                onClick={handleClose}
+                type="close"
+              >
+                Publish
               </Button>
             </Modal.Footer>
           </Form>
