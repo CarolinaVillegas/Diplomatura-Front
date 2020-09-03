@@ -51,7 +51,7 @@ export default function CreateMeme({}) {
 
   return (
     <React.Fragment >
-      <Button variant="primary" onClick={handleShow}>
+      <Button variant="primary" size="sm" onClick={handleShow}>
         Upload meme
       </Button>
       <Modal show={show} onHide={handleClose}>
