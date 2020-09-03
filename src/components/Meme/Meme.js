@@ -25,7 +25,7 @@ export default function Meme({ userData, addVoteHandler, removeVoteHandler }) {
               className="botonesLike"
               onClick={() => removeVoteHandler(meme)}
             >
-              DisLike
+              Dislike
             </Button>
             <Button className="buttonComment" /*cambiar a una ruta que lleve a ese meme individual y al comentario hay que pasar el meme y el usuario que va a comentar*/ meme = {meme} user = {userData}>
               Comment

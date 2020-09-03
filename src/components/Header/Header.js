@@ -1,6 +1,7 @@
 import React from "react";
 import "./Header.css";
-import { Col, Row, Container } from "react-bootstrap";
+import { Dropdown, Button, Col, Row, Container } from "react-bootstrap";
+import { FaUserCircle } from "react-icons/fa";
 import icon from "../../pictures/memeghost2.png";
 import userImg from "../../pictures/user.png";
 import Login from "../Login/Login";
@@ -19,31 +20,65 @@ export default function Header({ userLoggedIn, toggleStatus }) {
           </span>
         </a>
       </nav> */}
-      <Container>
-        <Row>
+      <Container fluid="">
+        <Row md="6">
           {userLoggedIn ? (
             <React.Fragment>
-              <Row className="visitor-function createAndLogout">
-                
-                <Col className="emailLogin">
-                  <img className="icono user" alt="" src={userImg} />
-                  {localStorage.getItem("email").substring(0,localStorage.getItem("email").lastIndexOf("@"))}
-
-                  <CreateMeme />
-                </Col>
-
-                <Col xs={7} className="titleAndIcon">
-                  <h1 className="title">
-                    {" "}
+              <React.Fragment>
+                <Col></Col>
+                <Col></Col>
+                <Col xs={6} className="titleAndIcon">
+                  <h1 className="text-center">
+                    {"         "}
+                    {"         "}
                     Meme Ghost
                     <img className="icono" alt="" src={icon} />
                   </h1>
                 </Col>
+                
+                <React.Fragment>
+                  <Row md="2">
+                  <Col className=" header-user">
+                    <Dropdown alignRight="false">
+                      <Dropdown.Toggle
+                        variant="info"
+                        id="dropdown-basic"
+                        size="sm"
+                      >
+                        <h1>
+                          <FaUserCircle />
+                        </h1>
+                        {/*localStorage
+                        .getItem("email")
+                        .substring(
+                          0,
+                          localStorage.getItem("email").lastIndexOf("@")
+                        )*/}
+                      </Dropdown.Toggle>
+                      <Dropdown.Menu>
+                        <Dropdown.Item href="#/action-1">
+                          My Profile
+                          {/*localStorage
+                        .getItem("email")
+                      */}
+                        </Dropdown.Item>
+                        <Dropdown.Item href="#/action-2">
+                          Settings
+                        </Dropdown.Item>
 
-                <Col className=" logout">
-                  <Logout setLogout={toggleStatus} />
-                </Col>
-              </Row>
+                        <Dropdown.Divider />
+                        <Dropdown.Item href="#/action-3">
+                          <Logout setLogout={toggleStatus} />
+                        </Dropdown.Item>
+                      </Dropdown.Menu>
+                    </Dropdown>
+                  </Col>
+                  <Col>
+                    <CreateMeme />
+                  </Col>
+                  </Row>
+                </React.Fragment>
+                </React.Fragment>
             </React.Fragment>
           ) : (
             <Row className="visitor-function loginSignUp">

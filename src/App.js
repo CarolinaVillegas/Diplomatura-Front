@@ -6,7 +6,7 @@ import "./App.css";
 //import './assets/css/fonts.css';
 // data
 import { data } from "./data.json";
-import { Container, Row, Col } from "react-bootstrap";
+import { Button, Container, Row, Col } from "react-bootstrap";
 
 // subcomponents
 //import CreateMeme from "./components/CreateMeme";
@@ -122,7 +122,10 @@ export default class App extends Component {
         <Container fluid>
           <Row>
             {/*<CreateMeme onAddTodo={this.handleAddTodo} />*/}
+
+            
             <Col md={4} className="menuBox">
+              
               <Menu
                 filterMemes={this.showMemesByCategory}
                 userLoggedIn={this.state.userIsLoggedIn}
