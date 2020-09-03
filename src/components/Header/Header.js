@@ -5,7 +5,7 @@ import icon from "../../pictures/memeghost2.png";
 import userImg from "../../pictures/user.png";
 import Login from "../Login/Login";
 import Logout from "../Logout/Logout";
-import SignUp from "../SignUp/SignUp";
+import SignUp2 from "../SignUp/SignUp2";
 import CreateMeme from "../CreateMeme/CreateMeme";
 
 export default function Header({ userLoggedIn, toggleStatus }) {
@@ -59,7 +59,7 @@ export default function Header({ userLoggedIn, toggleStatus }) {
                 <Login setLogin={toggleStatus}></Login>
               </Col>
               <Col md={5} className=" signUp">
-                <SignUp></SignUp>
+                <SignUp2></SignUp2>
               </Col>
             </Row>
           )}

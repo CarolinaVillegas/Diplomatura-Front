@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { validateFields } from "../Others/Validation";
 import { Button, FormGroup, FormControl, Modal } from "react-bootstrap";
 import classnames from "classnames";
+import "./SignUp.css";
 
 const initialState = {
   name: {
@@ -161,7 +162,7 @@ class SignUp2 extends Component {
             )}
 
             {/* Form Starts Here */}
-            <form onSubmit={(evt) => this.handleSubmit(evt)}>
+            <form className = "form" onSubmit={(evt) => this.handleSubmit(evt)}>
               {/* Name field */}
               <FormGroup>
                 <label>Name</label>
@@ -232,7 +233,7 @@ class SignUp2 extends Component {
               <Modal.Footer>
                 <Button
                   type="submit"
-                  variant="secondary"
+                  variant="primary"
                   onMouseDown={() => this.setState({ submitCalled: true })}
                 >
                   Submit
