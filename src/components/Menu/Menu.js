@@ -6,6 +6,15 @@ import userImg from "../../pictures/user.png";
 export default function Menu({ userLoggedIn, filterMemes }) {
   return (
     <div>
+      <Card style={{ width: "18rem" }} className=" boxUser">
+        {userLoggedIn ? (
+          <Row>
+            Hola
+            </Row>
+        ) : (
+          <Col></Col>
+        )}
+      </Card>
       <Card style={{ width: "18rem" }} className=" boxMenu">
         {/*userLoggedIn ? (
           <Row>

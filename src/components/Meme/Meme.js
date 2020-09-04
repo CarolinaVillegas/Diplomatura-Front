@@ -1,6 +1,7 @@
 import React from "react";
 import { Col, Card, Button } from "react-bootstrap";
 import "./Meme.css";
+import {IoIosText, IoIosThumbsDown, IoIosThumbsUp } from "react-icons/io";
 
 export default function Meme({ userData, addVoteHandler, removeVoteHandler }) {
   const data = userData.map((meme, i) => (
@@ -17,7 +18,7 @@ export default function Meme({ userData, addVoteHandler, removeVoteHandler }) {
               variant="success"
               className="botonesLike"
               onClick={() => addVoteHandler(meme)}
-            >
+            ><IoIosThumbsUp className="dedoLike"/>
               Like
             </Button>
             <Button
@@ -25,10 +26,10 @@ export default function Meme({ userData, addVoteHandler, removeVoteHandler }) {
               className="botonesLike"
               onClick={() => removeVoteHandler(meme)}
             >
-              Dislike
+             <IoIosThumbsDown className="dedoDislike"/> Dislike
             </Button>
             <Button className="buttonComment" /*cambiar a una ruta que lleve a ese meme individual y al comentario hay que pasar el meme y el usuario que va a comentar*/ meme = {meme} user = {userData}>
-              Comment
+            <IoIosText className="commentGlobe"/>   Comment
             </Button>
           </Card.Footer>
         </Card.Body>
