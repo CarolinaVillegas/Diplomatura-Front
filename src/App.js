@@ -137,7 +137,7 @@ export default class App extends Component {
                   addVoteHandler={this.addVote.bind(this)}
                   removeVoteHandler={this.removeVote.bind(this)}
                 />
-                <Comments></Comments>
+                {/* <Comments></Comments> */}
               </article>
             </Col>
             <Col md={1}>

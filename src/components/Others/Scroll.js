@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-
+import "./Scroll.css";
 export default class ScrollToTop extends Component {
   constructor(props) {
     super(props);
