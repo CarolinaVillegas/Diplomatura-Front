@@ -2,15 +2,27 @@ import React from "react";
 import { Dropdown, Card, Nav, Col, Row } from "react-bootstrap";
 import "./Menu.css";
 import userImg from "../../pictures/user.png";
+import { FaUserCircle } from "react-icons/fa";
 
 export default function Menu({ userLoggedIn, filterMemes }) {
   return (
     <div>
       <Card style={{ width: "18rem" }} className=" boxUser">
         {userLoggedIn ? (
-          <Row>
-            Hola
-            </Row>
+          <Card.Body>
+         
+            
+            <Col sm="auto" className="usuarioInfo" align="center">
+              
+              <FaUserCircle className="iconoUser" alignmentBaseline="center" />
+              
+            <p>{localStorage
+                .getItem("email")
+                /*.substring(0, localStorage.getItem("email").lastIndexOf("@"))*/}</p>
+                <p>Total Likes</p>
+            </Col>
+          
+          </Card.Body>
         ) : (
           <Col></Col>
         )}

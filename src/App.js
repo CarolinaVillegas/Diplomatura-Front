@@ -122,7 +122,6 @@ export default class App extends Component {
         <Container fluid>
           <Row>
             {/*<CreateMeme onAddTodo={this.handleAddTodo} />*/}
-
             
             <Col md={4} className="menuBox">
               

@@ -9,6 +9,7 @@ import {
   Modal,
   Label,
 } from "react-bootstrap";
+import {WiCloudUp} from "react-icons/wi";
 
 import "./CreateMeme.css";
 //import Upload from "./Upload.js";
@@ -96,8 +97,10 @@ export default function CreateMeme({}) {
             <Form.File id="image-file" label="Seleccionar imagen" custom />
 
             <Modal.Footer>
-              <Button block onClick={handleSave} type="submit">
-                Upload
+              <Button  block /*variant="primary"  size="sm"*/ onClick={handleSave} type="submit">
+              Upload
+               {/*<WiCloudUp className="uploadImg" size={30} align="center"/>*/} 
+                
               </Button>
               <Button onClick={handleClose} type="close">
                 Publish
