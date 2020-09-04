@@ -1,3 +1,8 @@
 .CreateMeme-Form {
   font-family: Arial;
 }
+.createMeme{
+  font-size: 0.9rem;
+  text-justify: auto;
+  padding: 7px;
+}

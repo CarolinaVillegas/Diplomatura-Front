@@ -33,9 +33,6 @@ header {
 .loginIn {
   margin-right: 1rem;
 }
-.createMeme {
-  margin-right: 2rem;
-}
 
 .createAndLogout {
   margin-left: -4rem;
@@ -50,6 +47,32 @@ header {
   justify-content: center;
   margin-left: 20px;
   display: flex;
+}
+
+.iconoUser{
+  font-size: 35px;
+  border: none;
+}
+
+.dropdownUser{
+  border: none;
+  font-size: 0px;
+  color: white;
+  background-color: rgb(43, 110, 255);
+  border-radius: 3rem;
+}
+.dropdownUser:hover{
+  border: none;
+  color: white;
+  background-color: rgb(43, 162, 255);
+}
+.dropdownUser:active{
+  border: none;
+  color: white;
+  background-color: rgb(43, 162, 255);
+}
+.header-user{
+  color: blue;
 }
 
 @media (max-width: 544px) {
@@ -81,6 +104,3 @@ header {
   }
 }
 
-h1 {
-  display: inline;
-}

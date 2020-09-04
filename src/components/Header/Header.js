@@ -24,61 +24,51 @@ export default function Header({ userLoggedIn, toggleStatus }) {
         <Row md="6">
           {userLoggedIn ? (
             <React.Fragment>
-              <React.Fragment>
-                <Col></Col>
-                <Col></Col>
-                <Col xs={6} className="titleAndIcon">
-                  <h1 className="text-center">
-                    {"         "}
-                    {"         "}
-                    Meme Ghost
-                    <img className="icono" alt="" src={icon} />
-                  </h1>
-                </Col>
-                
-                <React.Fragment>
-                  <Row md="2">
-                  <Col className=" header-user">
-                    <Dropdown alignRight="false">
-                      <Dropdown.Toggle
-                        variant="info"
-                        id="dropdown-basic"
-                        size="sm"
-                      >
-                        <h1>
-                          <FaUserCircle />
-                        </h1>
-                        {/*localStorage
+              <Col></Col>
+              <Col></Col>
+              <Col xs={6} className="titleAndIcon">
+                <h1 className="text-center">
+                  {"         "}
+                  {"         "}
+                  Meme Ghost
+                  <img className="icono" alt="" src={icon} />
+                </h1>
+              </Col>
+              <Col md={1} className=" header-user">
+                <Dropdown alignRight="false" className="dropdownOutSideUser">
+                  <Dropdown.Toggle
+                    className="dropdownUser"
+                    variant="info"
+                    id="dropdown-basic"
+                    size="sm"
+                  >
+                    <FaUserCircle className="iconoUser" />
+                    {/*localStorage
                         .getItem("email")
                         .substring(
                           0,
                           localStorage.getItem("email").lastIndexOf("@")
                         )*/}
-                      </Dropdown.Toggle>
-                      <Dropdown.Menu>
-                        <Dropdown.Item href="#/action-1">
-                          My Profile
-                          {/*localStorage
+                  </Dropdown.Toggle>
+                  <Dropdown.Menu >
+                    <Dropdown.Item href="#/action-1">
+                      My Profile
+                      {/*localStorage
                         .getItem("email")
                       */}
-                        </Dropdown.Item>
-                        <Dropdown.Item href="#/action-2">
-                          Settings
-                        </Dropdown.Item>
+                    </Dropdown.Item>
+                    <Dropdown.Item href="#/action-2">Settings</Dropdown.Item>
 
-                        <Dropdown.Divider />
-                        <Dropdown.Item href="#/action-3">
-                          <Logout setLogout={toggleStatus} />
-                        </Dropdown.Item>
-                      </Dropdown.Menu>
-                    </Dropdown>
-                  </Col>
-                  <Col>
-                    <CreateMeme />
-                  </Col>
-                  </Row>
-                </React.Fragment>
-                </React.Fragment>
+                    <Dropdown.Divider />
+                    <Dropdown.Item href="#/action-3">
+                      <Logout setLogout={toggleStatus} />
+                    </Dropdown.Item>
+                  </Dropdown.Menu>
+                </Dropdown>
+              </Col>
+              <Col md={1}>
+                <CreateMeme/>
+              </Col>
             </React.Fragment>
           ) : (
             <Row className="visitor-function loginSignUp">
@@ -90,10 +80,10 @@ export default function Header({ userLoggedIn, toggleStatus }) {
                 </h1>
               </Col>
 
-              <Col md={5} className=" loginIn">
+              <Col md={1} className=" loginIn">
                 <Login setLogin={toggleStatus}></Login>
               </Col>
-              <Col md={5} className=" signUp">
+              <Col md={1} className=" signUp">
                 <SignUp2></SignUp2>
               </Col>
             </Row>
