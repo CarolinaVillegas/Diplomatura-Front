@@ -51,16 +51,16 @@ export default function Header({ userLoggedIn, toggleStatus }) {
                         )*/}
                   </Dropdown.Toggle>
                   <Dropdown.Menu>
-                    <Dropdown.Item href="#/action-1">
+                    <Dropdown.Item href="#/MyProfile">
                       My Profile
                       {/*localStorage
                         .getItem("email")
                       */}
                     </Dropdown.Item>
-                    <Dropdown.Item href="#/action-2">Settings</Dropdown.Item>
+                    <Dropdown.Item href="#/Settings">Settings</Dropdown.Item>
 
                     <Dropdown.Divider />
-                    <Dropdown.Item href="#/action-3">
+                    <Dropdown.Item href="#/LogOut">
                       <Logout setLogout={toggleStatus} />
                     </Dropdown.Item>
                   </Dropdown.Menu>
