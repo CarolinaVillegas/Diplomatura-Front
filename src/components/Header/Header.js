@@ -24,12 +24,8 @@ export default function Header({ userLoggedIn, toggleStatus }) {
         <Row md="12">
           {userLoggedIn ? (
             <React.Fragment>
-              <Col></Col>
-              <Col></Col>
-              <Col xs={6} className="titleAndIcon">
+              <Col md={10} className="titleAndIcon">
                 <h1 className="text-center">
-                  {"         "}
-                  {"         "}
                   Meme Ghost
                   <img className="icono" alt="" src={icon} />
                 </h1>
@@ -78,10 +74,12 @@ export default function Header({ userLoggedIn, toggleStatus }) {
                   <img className="icono" alt="" src={icon} />
                 </h1>
               </Col>
-              <Col md = {2}>
+              <Col md = {1}>
                 <Login setLogin={toggleStatus}></Login>
+                </Col>
+                <Col md = {1}>
                 <SignUp2></SignUp2>
-              </Col>
+                </Col>
             </React.Fragment>
           )}
         </Row>

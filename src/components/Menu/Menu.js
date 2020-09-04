@@ -25,7 +25,7 @@ export default function Menu({ userLoggedIn, filterMemes }) {
           <Dropdown.Toggle variant="success" id="dropdown-basic">
             Category
           </Dropdown.Toggle>
-          <Dropdown.Menu>
+          <Dropdown.Menu className = "menuDesplegable">
             <Dropdown.Item>
               <div onClick={() => filterMemes("general")}>General</div>
             </Dropdown.Item>
@@ -81,7 +81,7 @@ export default function Menu({ userLoggedIn, filterMemes }) {
           <Dropdown.Toggle variant="success" id="dropdown-basic">
             Category
           </Dropdown.Toggle>
-          <Dropdown.Menu>
+          <Dropdown.Menu className = "menuDesplegable">
             <Dropdown.Item>
               <div onClick={() => filterMemes("general")}>General</div>
             </Dropdown.Item>

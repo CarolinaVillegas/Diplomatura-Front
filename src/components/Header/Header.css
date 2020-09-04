@@ -29,6 +29,14 @@ header {
   padding: 0.8rem;
   text-align: center;
 }
+.titleAndIcon{
+  justify-content: center;
+  text-align: center;
+  margin: auto;
+  align-items: center;
+  display: flex;
+  left: 8rem;
+}
 
 .loginIn {
   margin-right: 1rem;
