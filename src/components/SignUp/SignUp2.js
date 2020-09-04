@@ -236,7 +236,7 @@ class SignUp2 extends Component {
                   variant="primary"
                   onMouseDown={() => this.setState({ submitCalled: true })}
                 >
-                  Submit
+                  Sign Up
                 </Button>
               </Modal.Footer>
             </form>

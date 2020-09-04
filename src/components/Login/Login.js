@@ -113,7 +113,7 @@ export default function Login({ setLogin }) {
         </Modal.Header>
         <Modal.Body>
           <Form className="Login-Form" onSubmit={logIn}>
-            <Card.Title>Ingrese su email</Card.Title>
+            <Card.Title>Enter your email</Card.Title>
             <FormGroup controlId="email">
               <FormControl
                 autoComplete="email"
@@ -122,7 +122,7 @@ export default function Login({ setLogin }) {
                 onChange={(e) => setEmail(e.target.value)}
               />
             </FormGroup>
-            <Card.Title>Ingrese su password</Card.Title>
+            <Card.Title>Enter your password</Card.Title>
             <FormGroup controlId="password">
               {/* <ControlLabel>Password</ControlLabel> */}
               <FormControl
@@ -136,7 +136,7 @@ export default function Login({ setLogin }) {
               variant="danger"
               style={{ display: badLogin ? "block" : "none" }}
             >
-              El email o la contraseña ingresados son incorrectos.
+              Email or password entered is incorrect.
             </Alert>
             <Modal.Footer>
               <Button

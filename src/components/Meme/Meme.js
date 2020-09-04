@@ -11,8 +11,8 @@ export default function Meme({ userData, addVoteHandler, removeVoteHandler }) {
         <Card.Subtitle className="cardSubtitle">{meme.category}</Card.Subtitle>
         <Card.Img src={meme.img_source} alt={meme.title} loading="lazy" />
         <Card.Body>
-          Puntos: {meme.points} <br />
-          Comentarios: {meme.comment_counter}
+         Votes: {meme.points} <br />
+         Comments: {meme.comment_counter}
           <Card.Footer>
             <Button
               variant="success"

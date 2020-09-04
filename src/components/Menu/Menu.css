@@ -15,7 +15,13 @@
 .boxMenu{
   position: fixed;
   left: 30px;
-  top: 45%;
+  top: 28%;
+  width: 8em;
+}
+.boxMenuLogin{
+  position: fixed;
+  left: 30px;
+  top: 43%;
   width: 8em;
 }
 .boxUser{
@@ -27,8 +33,6 @@
 .usuarioInfo{
   vertical-align: middle;
   text-align: center;
-  
-
 }
 .category {
   margin-top: 5px;
@@ -37,10 +41,16 @@
   margin-bottom: 30px;
 }
 
+.boxTermsLogin {
+  position: fixed;
+  left: 30px;
+  top: 80%;
+  width: 8em;
+}
 
 .boxTerms {
   position: fixed;
   left: 30px;
-  top: 75%;
+  top: 74%;
   width: 8em;
 }
