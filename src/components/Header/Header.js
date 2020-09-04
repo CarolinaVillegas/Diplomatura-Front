@@ -50,7 +50,7 @@ export default function Header({ userLoggedIn, toggleStatus }) {
                           localStorage.getItem("email").lastIndexOf("@")
                         )*/}
                   </Dropdown.Toggle>
-                  <Dropdown.Menu >
+                  <Dropdown.Menu>
                     <Dropdown.Item href="#/action-1">
                       My Profile
                       {/*localStorage
@@ -67,26 +67,25 @@ export default function Header({ userLoggedIn, toggleStatus }) {
                 </Dropdown>
               </Col>
               <Col md={1}>
-                <CreateMeme/>
+                <CreateMeme />
               </Col>
             </React.Fragment>
           ) : (
-            <Row className="visitor-function loginSignUp">
-              <Col md={10} className="titleAndIcon">
-                <h1 className="title">
-                  {" "}
+            <React.Fragment>
+              <Col></Col>
+              <Col className="titleAndIcon">
+                <h1 className="text-center">
                   Meme Ghost
                   <img className="icono" alt="" src={icon} />
                 </h1>
               </Col>
 
-              <Col md={1} className=" loginIn">
+              <Col >
                 <Login setLogin={toggleStatus}></Login>
-              </Col>
-              <Col md={1} className=" signUp">
+              
                 <SignUp2></SignUp2>
               </Col>
-            </Row>
+            </React.Fragment>
           )}
         </Row>
       </Container>
