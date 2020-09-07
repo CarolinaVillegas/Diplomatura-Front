@@ -20,7 +20,7 @@ export default function Header({ userLoggedIn, toggleStatus }) {
           </span>
         </a>
       </nav> */}
-      <Container fluid="">
+      <Container >
         <Row md="12">
           {userLoggedIn ? (
             <React.Fragment>
