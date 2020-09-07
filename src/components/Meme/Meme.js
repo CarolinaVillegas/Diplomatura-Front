@@ -28,7 +28,8 @@ export default function Meme({ userData, addVoteHandler, removeVoteHandler }) {
             >
              <IoIosThumbsDown className="dedoDislike"/> Dislike
             </Button>
-            <Button className="buttonComment" /*cambiar a una ruta que lleve a ese meme individual y al comentario hay que pasar el meme y el usuario que va a comentar*/ meme = {meme} user = {userData}>
+            <Button className="buttonComment" /*cambiar a una ruta que lleve a ese meme individual y al comentario hay que pasar el meme y el usuario que va a comentar*/ meme = {meme} user = {userData}
+            >
             <IoIosText className="commentGlobe"/>   Comment
             </Button>
           </Card.Footer>
