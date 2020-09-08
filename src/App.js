@@ -1,10 +1,6 @@
-import React, { Component } from "react";
+import React, { Component,  useState  } from "react";
 
-// import google from "pictures/google.png"
-// import memeclown from "pictures/memeclown.png";
 import "./App.css";
-//import './assets/css/fonts.css';
-// data
 import { data } from "./data.json";
 import { Button, Container, Row, Col } from "react-bootstrap";
 
@@ -27,13 +23,16 @@ export default class App extends Component {
       data,
       currentUser: null,
       userIsLoggedIn: false,
+    //  disabled:false,
     };
   }
 
   addVote(meme) {
+    //const [disabled, setDisabled] = { disabled: true };
     if (localStorage.getItem("email")) {
       const nuevaLista = [...this.state.data]; // copia de los datos
-
+      //const [show, setShow] = useState(false);
+     // const [disabled, setDisabled] =  [disabled== true ] ;
       const indice = nuevaLista.findIndex((m) => m._id === meme._id);
 
       fetch("/memes/" + nuevaLista[indice]._id + "?increase=true", {
@@ -47,8 +46,10 @@ export default class App extends Component {
           points: nuevaLista[indice].points + 1,
         };
 
-        this.setState({ data: nuevaLista });
+        this.setState({ data: nuevaLista});
+      //  this.setState({disabled:true});
       });
+
     }
   }
 
@@ -140,11 +141,11 @@ export default class App extends Component {
                 {/* <Comments></Comments> */}
               </article>
             </Col>
-            <Col md={1}>
+            
+          </Row>
+        </Container><Col md={1}>
               <Scroll></Scroll>
             </Col>
-          </Row>
-        </Container>
       </div>
     );
   }

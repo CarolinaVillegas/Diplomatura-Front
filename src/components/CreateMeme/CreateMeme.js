@@ -94,7 +94,7 @@ export default function CreateMeme({}) {
               </Form.Control>
             </Form.Group>
             <Card.Title>Imagen</Card.Title>
-            <Form.File id="image-file" label="Seleccionar imagen" custom />
+            <Form.File id="image-file" label="Seleccionar imagen de formato .jpg, .jpeg, .png o .GIF" custom />
 
             <Modal.Footer>
               <Button  block /*variant="primary"  size="sm"*/ onClick={handleSave} type="submit">

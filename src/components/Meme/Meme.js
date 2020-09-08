@@ -1,9 +1,23 @@
-import React from "react";
+import React, { Component,  useState  }  from "react";
 import { Col, Card, Button } from "react-bootstrap";
 import "./Meme.css";
 import {IoIosText, IoIosThumbsDown, IoIosThumbsUp } from "react-icons/io";
 
+
+
+
 export default function Meme({ userData, addVoteHandler, removeVoteHandler }) {
+ /* const [disabled, setDisabled] = useState(false);
+  
+  function handleClickLike(meme) {    
+   setDisabled(true);
+    addVoteHandler(meme);
+  }
+ /* function handleClickDislike(meme) {    
+    setDisabled(true);
+    removeVoteHandler(meme);
+  }*/
+
   const data = userData.map((meme, i) => (
     <Col sm={6} md={8} key={i}>
       <Card style={{ width: "35rem" }} className="cardPrimary">
@@ -17,7 +31,8 @@ export default function Meme({ userData, addVoteHandler, removeVoteHandler }) {
             <Button
               variant="success"
               className="botonesLike"
-              onClick={() => addVoteHandler(meme)}
+              disabled={disabled}
+              onClick={() => handleClickLike(meme)}
             ><IoIosThumbsUp className="dedoLike"/>
               Like
             </Button>
