@@ -2,11 +2,17 @@ import React from 'react';
 import { Col, Card, Button } from 'react-bootstrap';
 import './Meme.css';
 import { IoIosText, IoIosThumbsDown, IoIosThumbsUp } from 'react-icons/io';
+import Comments from '../Comments/Comments';
 
-export default function Meme({ userData, addVoteHandler, removeVoteHandler }) {
-  const data = userData.map((meme, i) => (
+export default function Meme({
+  memes,
+  addVoteHandler,
+  removeVoteHandler,
+  showCommentHandler,
+}) {
+  const data = memes.map((meme, i) => (
     <Col sm={6} md={8} key={i}>
-      <Card style={{ width: '35rem' }} className="cardPrimary">
+      <Card className="cardPrimary">
         <Card.Title className="cardTitle">{meme.title}</Card.Title>
         <Card.Subtitle className="cardSubtitle">{meme.category}</Card.Subtitle>
         <Card.Img
@@ -36,14 +42,20 @@ export default function Meme({ userData, addVoteHandler, removeVoteHandler }) {
             </Button>
             <Button
               className="buttonComment"
-              /*cambiar a una ruta que lleve a ese meme individual y al comentario hay que pasar el meme y el usuario que va a comentar*/ meme={
+              onClick={() => showCommentHandler(meme)}
+              /*cambiar a una ruta que lleve a ese meme individual y al comentario hay que pasar el meme y el usuario que va a comentar meme={
                 meme
               }
-              user={userData}
+              user={userData}*/
             >
               <IoIosText className="commentGlobe" /> Comment
             </Button>
           </Card.Footer>
+          {meme.showComment ? (
+            <Comments com={meme.comentarios} memeID={meme._id} />
+          ) : (
+            <br />
+          )}
         </Card.Body>
       </Card>
     </Col>

@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState } from 'react';
+
 import {
   Col,
   Card,
@@ -6,11 +7,29 @@ import {
   Form,
   InputGroup,
   FormControl,
-} from "react-bootstrap";
+} from 'react-bootstrap';
 
-import "./Comments.css";
+import './Comments.css';
 
-export default function Comments({ user, meme }) {
+export default function Comments({ com, memeID }) {
+  const [comment, setComment] = useState('');
+
+  function handleSave(event) {
+    event.preventDefault();
+
+    fetch(`/comments/${memeID}`, {
+      method: 'POST',
+      headers: {
+        'x-access-token': localStorage.getItem('token'),
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ message: comment }),
+    })
+      .then((data) => data.json())
+      .then((response) => console.log(response))
+      .catch((e) => console.log(e));
+  }
+
   return (
     <div className="comments">
       <Col sm={6} md={8}>
@@ -24,14 +43,19 @@ export default function Comments({ user, meme }) {
         <Card.Footer> */}
         <Form.Group controlId="exampleForm.ControlTextarea1">
           <Form.Label>Leave your comment</Form.Label>
-          <InputGroup >
+          <InputGroup>
             <InputGroup.Prepend>
-              <Button className="buttonComment"> Submit </Button>
+              <Button className="buttonComment" onClick={handleSave}>
+                {' '}
+                Submit{' '}
+              </Button>
             </InputGroup.Prepend>
             <FormControl
               as="textarea"
               aria-label="With textarea"
               placeholder="Write something..."
+              value={comment}
+              onChange={(e) => setComment(e.target.value)}
             />
           </InputGroup>
         </Form.Group>
@@ -40,7 +64,11 @@ export default function Comments({ user, meme }) {
       </Card.Body>
     </Card> */}
       </Col>
-      <Col>aca tienen que mostrarse los comentarios que ya se hicieron </Col>
+      <Col>
+        {com.map((c) => (
+          <h2>{c.message}</h2>
+        ))}
+      </Col>
     </div>
   );
 }

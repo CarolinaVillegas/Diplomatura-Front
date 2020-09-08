@@ -1,13 +1,13 @@
-import React from "react";
-import "./Header.css";
-import { Dropdown, Button, Col, Row, Container } from "react-bootstrap";
-import { FaUserCircle } from "react-icons/fa";
-import icon from "../../pictures/memeghost2.png";
-import userImg from "../../pictures/user.png";
-import Login from "../Login/Login";
-import Logout from "../Logout/Logout";
-import SignUp2 from "../SignUp/SignUp2";
-import CreateMeme from "../CreateMeme/CreateMeme";
+import React from 'react';
+import './Header.css';
+import { Dropdown, Button, Col, Row, Container } from 'react-bootstrap';
+import { FaUserCircle } from 'react-icons/fa';
+import icon from '../../pictures/memeghost2.png';
+import userImg from '../../pictures/user.png';
+import Login from '../Login/Login';
+import Logout from '../Logout/Logout';
+import SignUp2 from '../SignUp/SignUp2';
+import CreateMeme from '../CreateMeme/CreateMeme';
 
 export default function Header({ userLoggedIn, toggleStatus }) {
   return (
@@ -20,7 +20,7 @@ export default function Header({ userLoggedIn, toggleStatus }) {
           </span>
         </a>
       </nav> */}
-      <Container >
+      <Container>
         <Row md="12">
           {userLoggedIn ? (
             <React.Fragment>
@@ -31,7 +31,7 @@ export default function Header({ userLoggedIn, toggleStatus }) {
                 </h1>
               </Col>
               <Col md={1} className=" header-user">
-                <Dropdown alignRight="false" className="dropdownOutSideUser">
+                <Dropdown className="dropdownOutSideUser">
                   <Dropdown.Toggle
                     className="dropdownUser"
                     variant="info"
@@ -68,18 +68,18 @@ export default function Header({ userLoggedIn, toggleStatus }) {
             </React.Fragment>
           ) : (
             <React.Fragment>
-              <Col md = {10} className="titleAndIcon">
+              <Col md={10} className="titleAndIcon">
                 <h1 className="text-center">
                   Meme Ghost
                   <img className="icono" alt="" src={icon} />
                 </h1>
               </Col>
-              <Col md = {1}>
+              <Col md={1}>
                 <Login setLogin={toggleStatus}></Login>
-                </Col>
-                <Col md = {1}>
+              </Col>
+              <Col md={1}>
                 <SignUp2></SignUp2>
-                </Col>
+              </Col>
             </React.Fragment>
           )}
         </Row>
