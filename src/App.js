@@ -144,6 +144,19 @@ export default class App extends Component {
   render() {
     return (
       <div className="App">
+        <div className = "area">
+        <ul class="circles">
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+            </ul>
         <meta
           name="viewport"
           content="width=device-width, initial-scale=1"
@@ -152,7 +165,8 @@ export default class App extends Component {
           userLoggedIn={this.state.userIsLoggedIn}
           toggleStatus={this.toggleUserStatus.bind(this)}
         />
-        <Container fluid>
+        <Container fluid >
+        
           <Row>
             <Col xs={1} md={4} className="menuBox">
               <Menu
@@ -175,6 +189,7 @@ export default class App extends Component {
             </Col>
           </Row>
         </Container>
+        </div>
       </div>
     );
   }
