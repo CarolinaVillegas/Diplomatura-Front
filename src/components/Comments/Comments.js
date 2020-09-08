@@ -68,7 +68,9 @@ export default function Comments({ listOfComments, memeID }) {
         {listOfComments.map((comment, i) => {
           return (
             <div key={i}>
-              <h2>{comment.message}</h2>
+              <h2>
+                {comment.owner} : {comment.message}
+              </h2>
               <h3>{comment.createdAt}</h3>
             </div>
           );

@@ -21,12 +21,14 @@ export default function Header({ userLoggedIn, toggleStatus }) {
         </a>
       </nav> */}
       <Container fluid>
-        <Row >
+        <Row>
           {userLoggedIn ? (
             <React.Fragment>
-              <Col  className="titleAndIcon">
+              <Col className="titleAndIcon">
                 <h1 className="text-center">
-                  Meme Ghost
+                  <a style={{ textDecoration: 'none' }} href="/">
+                    Meme Ghost
+                  </a>
                   <img className="icono" alt="" src={icon} />
                 </h1>
               </Col>
@@ -68,7 +70,7 @@ export default function Header({ userLoggedIn, toggleStatus }) {
             </React.Fragment>
           ) : (
             <React.Fragment>
-              <Col  className="titleAndIcon">
+              <Col className="titleAndIcon">
                 <h1 className="text-center">
                   Meme Ghost
                   <img className="icono" alt="" src={icon} />
