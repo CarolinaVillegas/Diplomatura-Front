@@ -144,19 +144,23 @@ export default class App extends Component {
   render() {
     return (
       <div className="App">
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1"
+        ></meta>
         <Header
           userLoggedIn={this.state.userIsLoggedIn}
           toggleStatus={this.toggleUserStatus.bind(this)}
         />
         <Container fluid>
           <Row>
-            <Col md={4} className="menuBox">
+            <Col xs={1} md={4} className="menuBox">
               <Menu
                 filterMemes={this.showMemesByCategory}
                 userLoggedIn={this.state.userIsLoggedIn}
               />
             </Col>
-            <Col sm={6} md={8}>
+            <Col xs={4} sm={5} md={8}>
               <article className="memePosition">
                 <Meme
                   memes={this.state.memes}

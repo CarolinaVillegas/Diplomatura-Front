@@ -11,7 +11,7 @@ export default function Meme({
   showCommentHandler,
 }) {
   const data = memes.map((meme, i) => (
-    <Col sm={6} md={8} key={i}>
+    <Col  key={i}>
       <Card className="cardPrimary">
         <Card.Title className="cardTitle">{meme.title}</Card.Title>
         <Card.Subtitle className="cardSubtitle">{meme.category}</Card.Subtitle>
@@ -41,6 +41,7 @@ export default function Meme({
               <IoIosThumbsDown className="dedoDislike" /> Dislike
             </Button>
             <Button
+              variant="light"
               className="buttonComment"
               onClick={() => showCommentHandler(meme)}
               /*cambiar a una ruta que lleve a ese meme individual y al comentario hay que pasar el meme y el usuario que va a comentar meme={

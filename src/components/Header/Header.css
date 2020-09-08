@@ -6,7 +6,7 @@ header {
   color: white;
   font-size: 30px;
   position: fixed;
-  z-index:2;
+  z-index: 2;
 }
 
 .title {
@@ -31,7 +31,7 @@ header {
   padding: 0.8rem;
   text-align: center;
 }
-.titleAndIcon{
+.titleAndIcon {
   justify-content: center;
   text-align: center;
   margin: auto;
@@ -59,29 +59,29 @@ header {
   display: flex;
 }
 
-.iconoUser{
+.iconoUser {
   font-size: 35px;
   border: none;
 }
 
-.dropdownUser{
+.dropdownUser {
   border: none;
   font-size: 0px;
   color: white;
   background-color: rgb(43, 110, 255);
   border-radius: 3rem;
 }
-.dropdownUser:hover{
+.dropdownUser:hover {
   border: none;
   color: white;
   background-color: rgb(43, 162, 255);
 }
-.dropdownUser:active{
+.dropdownUser:active {
   border: none;
   color: white;
   background-color: rgb(43, 162, 255);
 }
-.header-user{
+.header-user {
   color: blue;
 }
 
@@ -89,6 +89,30 @@ header {
   .icono {
     max-width: 100%;
     height: 30px;
+  }
+  header {
+    padding: 1px;
+    width: 100%;
+    text-align: center;
+    background: #323232;
+    color: white;
+    font-size: 1px;
+    position: fixed;
+    z-index: 2;
+  }
+
+  .title {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+  }
+  .titleAndIcon {
+    justify-content: center;
+    text-align: center;
+    margin: auto;
+    align-items: center;
+    display: flex;
+    left: 1rem;
   }
 }
 
@@ -113,4 +137,3 @@ header {
     margin-left: 180px;
   }
 }
-

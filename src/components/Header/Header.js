@@ -20,11 +20,11 @@ export default function Header({ userLoggedIn, toggleStatus }) {
           </span>
         </a>
       </nav> */}
-      <Container>
-        <Row md="12">
+      <Container fluid>
+        <Row >
           {userLoggedIn ? (
             <React.Fragment>
-              <Col md={10} className="titleAndIcon">
+              <Col  className="titleAndIcon">
                 <h1 className="text-center">
                   Meme Ghost
                   <img className="icono" alt="" src={icon} />
@@ -68,7 +68,7 @@ export default function Header({ userLoggedIn, toggleStatus }) {
             </React.Fragment>
           ) : (
             <React.Fragment>
-              <Col md={10} className="titleAndIcon">
+              <Col  className="titleAndIcon">
                 <h1 className="text-center">
                   Meme Ghost
                   <img className="icono" alt="" src={icon} />
