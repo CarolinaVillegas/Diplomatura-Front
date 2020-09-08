@@ -11,7 +11,7 @@ import {
 
 import './Comments.css';
 
-export default function Comments({ com, memeID }) {
+export default function Comments({ listOfComments, memeID }) {
   const [comment, setComment] = useState('');
 
   function handleSave(event) {
@@ -65,9 +65,14 @@ export default function Comments({ com, memeID }) {
     </Card> */}
       </Col>
       <Col>
-        {com.map((c) => (
-          <h2>{c.message}</h2>
-        ))}
+        {listOfComments.map((comment, i) => {
+          return (
+            <div key={i}>
+              <h2>{comment.message}</h2>
+              <h3>{comment.createdAt}</h3>
+            </div>
+          );
+        })}
       </Col>
     </div>
   );

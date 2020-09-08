@@ -52,7 +52,7 @@ export default function Meme({
             </Button>
           </Card.Footer>
           {meme.showComment ? (
-            <Comments com={meme.comentarios} memeID={meme._id} />
+            <Comments listOfComments={meme.comentarios} memeID={meme._id} />
           ) : (
             <br />
           )}
