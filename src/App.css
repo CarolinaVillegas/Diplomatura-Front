@@ -38,6 +38,15 @@ body {
   float: left;
   position: relative;
   top: 80px;
+  animation: 
+  stretch
+  1.5s
+  ease-out
+  0s
+  alternate
+  infinite
+  none
+  running;
 }
 
 .menuBox {
