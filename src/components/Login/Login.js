@@ -104,7 +104,7 @@ export default function Login({ setLogin }) {
 
   return (
     <React.Fragment>
-      <Button variant="primary" onClick={handleShow}>
+      <Button variant="primary" className = "buttonLogin" onClick={handleShow}>
         Log in
       </Button>
       <Modal show={show} onHide={handleClose}>

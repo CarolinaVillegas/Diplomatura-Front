@@ -12,27 +12,28 @@
   font-family: Arial, Helvetica, sans-serif;
 }
 
-.boxMenu{
+.boxMenu {
   position: fixed;
   left: 30px;
   top: 28%;
   width: 8em;
 }
-.boxMenuLogin{
+.boxMenuLogin {
   position: fixed;
   left: 30px;
-  top: 43%;
+  top: 45%;
   width: 8em;
 }
-.boxUser{
+.boxUser {
   position: fixed;
   left: 30px;
   top: 15%;
   width: 25em;
 }
-.usuarioInfo{
+.usuarioInfo {
   vertical-align: middle;
   text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
 }
 .category {
   margin-top: 5px;
@@ -56,20 +57,72 @@
   width: 8em;
 }
 
-.menuDesplegable{
-  z-index: 5;
+.menuDesplegable,
+.category,
+.boxMenuLogin,
+.boxMenu {
+  z-index: 1;
+}
+
+@media (min-width: 768px) and (max-width: 1199px) {
+  .boxUser {
+    transform: scale(0.8);
+    top: 10%;
+    left: 10px;
+  }
+  .boxMenu,
+  .boxMenuLogin {
+    transform: scale(0.8);
+    position: block;
+    left: 10px;
+    top: 25%;
+    width: 7em;
+  }
+  .boxTerms,
+  .boxTermsLogin {
+    transform: scale(0.8);
+    left: 10px;
+    top: 45%;
+  }
 }
 
 @media (max-width: 544px) {
-  .boxTerms, .boxUser, .boxTermsLogin {
+  .boxTerms,
+  .boxUser,
+  .boxTermsLogin {
     visibility: hidden;
   }
-  .boxMenu, .boxMenuLogin{
+  .boxMenuLogin,
+  .boxMenu {
+    z-index: 0;
+  }
+
+  .boxMenu,
+  .boxMenuLogin {
     transform: scale(0.7);
     position: block;
-    
+
     left: 30px;
     top: 20.5%;
     width: 8em;
+  }
+
+  @media (max-width: 360px) {
+    .boxMenu,
+    .boxMenuLogin {
+      top: 22%;
+    }
+  }
+  @media (max-width: 375px) {
+    .boxMenu,
+    .boxMenuLogin {
+      top: 18%;
+    }
+  }
+  @media (max-width: 320px) {
+    .boxMenu,
+    .boxMenuLogin {
+      top: 25%;
+    }
   }
 }
