@@ -10,68 +10,6 @@ footer {
   z-index: 2;
 }
 
-.title {
-  text-align: center;
-  display: flex;
-  justify-content: center;
-}
-
-
-.loginIn,
-.signUp,
-.logout,
-.createMeme {
-  border-radius: 5px;
-  font-size: 18px;
-  padding: 0.8rem;
-  text-align: center;
-}
-
-.loginIn {
-  margin-right: 1rem;
-}
-
-.createAndLogout {
-  margin-left: -4rem;
-}
-.loginSignUp {
-  margin-left: -3rem;
-}
-
-.emailLogin {
-  padding: 1rem;
-  font-size: 15px;
-  justify-content: center;
-  margin-left: 20px;
-  display: flex;
-}
-
-.iconoUser {
-  font-size: 35px;
-  border: none;
-}
-
-.dropdownUser {
-  border: none;
-  font-size: 0px;
-  color: white;
-  background-color: rgb(43, 110, 255);
-  border-radius: 3rem;
-}
-.dropdownUser:hover {
-  border: none;
-  color: white;
-  background-color: rgb(43, 162, 255);
-}
-.dropdownUser:active {
-  border: none;
-  color: white;
-  background-color: rgb(43, 162, 255);
-}
-.header-user {
-  color: blue;
-}
-
 @media (max-width: 544px) {
   .icono {
     max-width: 100%;
@@ -81,7 +19,7 @@ footer {
     padding: 1px;
     width: 100%;
     text-align: center;
-    background: #323232;
+    background: transparent;
     color: white;
     font-size: 1px;
     position: fixed;
