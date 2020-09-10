@@ -1,11 +1,12 @@
-header {
-  padding: 15px;
+footer {
+  padding: 5px;
   width: 100%;
   text-align: center;
-  background: #323232;
+  background: transparent;
   color: white;
   font-size: 30px;
   position: fixed;
+  bottom: 0;
   z-index: 2;
 }
 
@@ -15,12 +16,6 @@ header {
   justify-content: center;
 }
 
-.icono {
-  max-width: 4%;
-  height: auto;
-  margin-left: 15px;
-  color: aliceblue;
-}
 
 .loginIn,
 .signUp,
@@ -30,15 +25,6 @@ header {
   font-size: 18px;
   padding: 0.8rem;
   text-align: center;
-}
-.titleAndIcon {
-  justify-content: center;
-  text-align: center;
-  margin: auto;
-  align-items: center;
-  display: flex;
-  left: 8rem;
-  margin-bottom: -10px;
 }
 
 .loginIn {
@@ -91,7 +77,7 @@ header {
     max-width: 100%;
     height: 30px;
   }
-  header {
+  footer {
     padding: 1px;
     width: 100%;
     text-align: center;
@@ -140,80 +126,6 @@ header {
 }
 
 /*aca comienza lo del titulo */
-
-.animate {
-  font-size: 50px;
-  margin: 0px;
-}
-
-.animate span {
-  display: inline-block;
-}
-
-.animate span:nth-of-type(2) {
-  animation-delay: 0.05s;
-}
-.animate span:nth-of-type(3) {
-  animation-delay: 0.1s;
-}
-.animate span:nth-of-type(4) {
-  animation-delay: 0.15s;
-}
-.animate span:nth-of-type(5) {
-  animation-delay: 0.2s;
-}
-.animate span:nth-of-type(6) {
-  animation-delay: 0.25s;
-}
-.animate span:nth-of-type(7) {
-  animation-delay: 0.3s;
-}
-.animate span:nth-of-type(8) {
-  animation-delay: 0.35s;
-}
-.animate span:nth-of-type(9) {
-  animation-delay: 0.4s;
-}
-.animate span:nth-of-type(10) {
-  animation-delay: 0.45s;
-}
-.animate span:nth-of-type(11) {
-  animation-delay: 0.5s;
-}
-.animate span:nth-of-type(12) {
-  animation-delay: 0.55s;
-}
-.animate span:nth-of-type(13) {
-  animation-delay: 0.6s;
-}
-.animate span:nth-of-type(14) {
-  animation-delay: 0.65s;
-}
-.animate span:nth-of-type(15) {
-  animation-delay: 0.7s;
-}
-.animate span:nth-of-type(16) {
-  animation-delay: 0.75s;
-}
-.animate span:nth-of-type(17) {
-  animation-delay: 0.8s;
-}
-.animate span:nth-of-type(18) {
-  animation-delay: 0.85s;
-}
-.animate span:nth-of-type(19) {
-  animation-delay: 0.9s;
-}
-.animate span:nth-of-type(20) {
-  animation-delay: 0.95s;
-}
-
-.six span {
-  color: white;
-  opacity: 0;
-  transform: rotate(-180deg) translate(150px, 0);
-  animation: twister 0.5s forwards;
-}
 
 @keyframes twister {
   10% {

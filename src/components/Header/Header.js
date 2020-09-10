@@ -21,14 +21,22 @@ export default function Header({ userLoggedIn, toggleStatus }) {
         </a>
       </nav> */}
       <Container fluid>
-        <Row >
+        <Row>
           {userLoggedIn ? (
             <React.Fragment>
-              <Col  className="titleAndIcon">
-                <h1 className="text-center">
-                  Meme Ghost
-                  <img className="icono" alt="" src={icon} />
-                </h1>
+              <Col className="titleAndIcon">
+                <div class="animate six">
+                  <span>M</span>
+                  <span>e</span>
+                  <span>m</span>
+                  <span>e</span> &nbsp;
+                  <span>G</span>
+                  <span>h</span>
+                  <span>o</span>
+                  <span>s</span>
+                  <span>t</span>
+                  <span><img className="icono" alt="" src={icon} /></span>
+                </div>
               </Col>
               <Col md={1} className=" header-user">
                 <Dropdown className="dropdownOutSideUser">
@@ -68,11 +76,19 @@ export default function Header({ userLoggedIn, toggleStatus }) {
             </React.Fragment>
           ) : (
             <React.Fragment>
-              <Col  className="titleAndIcon">
-                <h1 className="text-center">
-                  Meme Ghost
-                  <img className="icono" alt="" src={icon} />
-                </h1>
+              <Col className="titleAndIcon">
+              <div class="animate six">
+                  <span>M</span>
+                  <span>e</span>
+                  <span>m</span>
+                  <span>e</span> &nbsp;
+                  <span>G</span>
+                  <span>h</span>
+                  <span>o</span>
+                  <span>s</span>
+                  <span>t</span>
+                  <span><img className="icono" alt="" src={icon} /></span>
+                </div>
               </Col>
               <Col md={1}>
                 <Login setLogin={toggleStatus}></Login>

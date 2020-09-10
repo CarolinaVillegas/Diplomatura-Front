@@ -13,10 +13,11 @@ export default function Menu({ userLoggedIn, filterMemes }) {
           <Card.Body>
             <Col sm="auto" className="usuarioInfo" align="center">
               <FaUserCircle className="iconoUser" alignmentBaseline="center" />
-            <p>{localStorage
+              <p className="boldText">Bienvenidx!!!</p>
+            <p className="boldText">{localStorage
                 .getItem("email")
                 /*.substring(0, localStorage.getItem("email").lastIndexOf("@"))*/}</p>
-                <p>Total Likes</p>
+                
             </Col>
           </Card.Body>
           </Card>

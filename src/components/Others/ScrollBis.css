@@ -1,13 +1,13 @@
 .scrollTop {
-  position: fixed;
+ /* position: fixed;*/
     width: 100%;
-    bottom: 20px;
+    bottom: 1px;
     /*align-items: right;*/
     height: 20px;
     /*justify-content: left;*/
-    float: right;
+    /*float: right;*/
    /* z-index: 1000;*/
-    cursor: pointer;
+    /*cursor: pointer;*/
     /*animation: fadeIn 0.3s;
     transition: opacity 0.4s;
     opacity: 0.5;*/
