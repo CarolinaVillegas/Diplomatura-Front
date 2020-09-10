@@ -39,6 +39,7 @@
   vertical-align: middle;
   text-align: center;
   margin-bottom: 30px;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 .boxTermsLogin {
@@ -57,4 +58,18 @@
 
 .menuDesplegable{
   z-index: 5;
+}
+
+@media (max-width: 544px) {
+  .boxTerms, .boxUser, .boxTermsLogin {
+    visibility: hidden;
+  }
+  .boxMenu, .boxMenuLogin{
+    transform: scale(0.7);
+    position: block;
+    
+    left: 30px;
+    top: 17.5%;
+    width: 8em;
+  }
 }

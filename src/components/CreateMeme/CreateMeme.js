@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
 import {
   Dropdown,
   Form,
@@ -8,10 +8,10 @@ import {
   Card,
   Modal,
   Label,
-} from "react-bootstrap";
-import {WiCloudUp} from "react-icons/wi";
+} from 'react-bootstrap';
+import { WiCloudUp } from 'react-icons/wi';
 
-import "./CreateMeme.css";
+import './CreateMeme.css';
 //import Upload from "./Upload.js";
 //import GoogleLogin from "react-google-login";
 //import LogInG from "./components/LogIng";
@@ -19,9 +19,8 @@ import "./CreateMeme.css";
 let login;
 
 export default function CreateMeme({}) {
-  const [title, setTitle] = useState("");
-  const [description, setDescription] = useState("");
-  const [category, setCategory] = useState("");
+  const [title, setTitle] = useState('');
+  const [category, setCategory] = useState('general');
   const [show, setShow] = useState(false);
   const [badLogin, setBadLogin] = useState(false);
   // const forceUpdate = React.useCallback(() => updateState({}), []);
@@ -35,24 +34,28 @@ export default function CreateMeme({}) {
     const formData = new FormData();
     const fileField = document.querySelector("input[type='file']");
 
-    formData.append("title", title);
-    formData.append("description", description);
-    formData.append("category", category);
-    formData.append("img_source", fileField.files[0]);
+    formData.append('title', title);
+    formData.append('category', category);
+    formData.append('img_source', fileField.files[0]);
 
-    fetch("/memes", {
-      method: "POST",
+    fetch('/memes', {
+      method: 'POST',
       body: formData,
-      headers: { "x-access-token": localStorage.getItem("token") },
+      headers: { 'x-access-token': localStorage.getItem('token') },
     })
       .then((data) => data.json())
-      .then((response) => console.log(response))
-      .catch((e) => console.log("Error: ", e));
+      .then((response) => window.location.reload(false))
+      .catch((e) => console.log('Error: ', e));
   }
 
   return (
-    <React.Fragment >
-      <Button  className = "createMeme" variant="primary" size="sm" onClick={handleShow}>
+    <React.Fragment>
+      <Button
+        className="createMeme"
+        variant="primary"
+        size="sm"
+        onClick={handleShow}
+      >
         Upload meme
       </Button>
       <Modal show={show} onHide={handleClose}>
@@ -69,16 +72,8 @@ export default function CreateMeme({}) {
                 onChange={(e) => setTitle(e.target.value)}
               />
             </FormGroup>
-            <Card.Title>Description</Card.Title>
-            <FormGroup controlId="description">
-              <FormControl
-                value={description}
-                type="description"
-                onChange={(e) => setDescription(e.target.value)}
-              />
-            </FormGroup>
             <Form.Group controlId="category">
-            <Card.Title>Category</Card.Title>
+              <Card.Title>Category</Card.Title>
               <Form.Control
                 as="select"
                 value={category}
@@ -97,10 +92,9 @@ export default function CreateMeme({}) {
             <Form.File id="image-file" label="Seleccionar imagen de formato .jpg, .jpeg, .png o .GIF" custom />
 
             <Modal.Footer>
-              <Button  block /*variant="primary"  size="sm"*/ onClick={handleSave} type="submit">
-              Upload
-               {/*<WiCloudUp className="uploadImg" size={30} align="center"/>*/} 
-                
+              <Button onClick={handleSave} type="submit" block>
+                Upload
+                {/*<WiCloudUp className="uploadImg" size={30} align="center"/>*/}
               </Button>
               <Button onClick={handleClose} type="close">
                 Publish
