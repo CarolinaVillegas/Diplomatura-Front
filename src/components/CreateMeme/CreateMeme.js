@@ -44,7 +44,7 @@ export default function CreateMeme({}) {
       headers: { 'x-access-token': localStorage.getItem('token') },
     })
       .then((data) => data.json())
-      .then((response) => window.location.reload(false))
+      .then((response) => window.location.reload())
       .catch((e) => console.log('Error: ', e));
   }
 
@@ -86,16 +86,17 @@ export default function CreateMeme({}) {
                 <option>anime</option>
               </Form.Control>
             </Form.Group>
-            <Card.Title>Imagen</Card.Title>
-            <Form.File id="image-file" label="Seleccionar imagen de formato .jpg, .jpeg, .png o .GIF" custom />
+            <Card.Title>Image</Card.Title>
+            <Form.File
+              id="image-file"
+              label="Seleccionar imagen de formato .jpg, .jpeg, .png o .GIF"
+              custom
+            />
 
             <Modal.Footer>
               <Button onClick={handleSave} type="submit" block>
                 Upload
                 {/*<WiCloudUp className="uploadImg" size={30} align="center"/>*/}
-              </Button>
-              <Button onClick={handleClose} type="close">
-                Publish
               </Button>
             </Modal.Footer>
           </Form>

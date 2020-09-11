@@ -25,18 +25,22 @@ export default function Header({ userLoggedIn, toggleStatus }) {
           {userLoggedIn ? (
             <React.Fragment>
               <Col className="titleAndIcon">
-                <div class="animate six">
-                  <span>M</span>
-                  <span>e</span>
-                  <span>m</span>
-                  <span>e</span> &nbsp;
-                  <span>G</span>
-                  <span>h</span>
-                  <span>o</span>
-                  <span>s</span>
-                  <span>t</span>
-                  <span><img className="icono" alt="" src={icon} /></span>
-                </div>
+                <a href="/" style={{ textDecoration: 'none' }}>
+                  <div class="animate six">
+                    <span>M</span>
+                    <span>e</span>
+                    <span>m</span>
+                    <span>e</span> &nbsp;
+                    <span>G</span>
+                    <span>h</span>
+                    <span>o</span>
+                    <span>s</span>
+                    <span>t</span>
+                    <span>
+                      <img className="icono" alt="" src={icon} />
+                    </span>
+                  </div>
+                </a>
               </Col>
               <Col md={1} className=" header-user">
                 <Dropdown className="dropdownOutSideUser">
@@ -77,18 +81,22 @@ export default function Header({ userLoggedIn, toggleStatus }) {
           ) : (
             <React.Fragment>
               <Col className="titleAndIcon">
-              <div class="animate six">
-                  <span>M</span>
-                  <span>e</span>
-                  <span>m</span>
-                  <span>e</span> &nbsp;
-                  <span>G</span>
-                  <span>h</span>
-                  <span>o</span>
-                  <span>s</span>
-                  <span>t</span>
-                  <span><img className="icono" alt="" src={icon} /></span>
-                </div>
+                <a href="/" style={{ textDecoration: 'none' }}>
+                  <div className="animate six">
+                    <span>M</span>
+                    <span>e</span>
+                    <span>m</span>
+                    <span>e</span> &nbsp;
+                    <span>G</span>
+                    <span>h</span>
+                    <span>o</span>
+                    <span>s</span>
+                    <span>t</span>
+                    <span>
+                      <img className="icono" alt="" src={icon} />
+                    </span>
+                  </div>
+                </a>
               </Col>
               <Col md={1}>
                 <Login setLogin={toggleStatus}></Login>
