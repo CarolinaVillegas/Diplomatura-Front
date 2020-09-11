@@ -1,6 +1,7 @@
 .cardPrimary {
   margin-top: 10px;
-  width: 30rem;
+  width: 30rem;/*40rem;*/
+  margin-bottom: 25px;
 }
 
 .cardBody {
@@ -10,6 +11,7 @@
 .cardTitle,
 .cardImg,
 .cardSubtitle {
+  font-weight: bold;
   text-align: center;
   font-family: Arial, Helvetica, sans-serif;
 }

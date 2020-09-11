@@ -10,7 +10,7 @@ import Meme from './components/Meme/Meme';
 import Menu from './components/Menu/Menu';
 //import Login from "./components/Login/Login";
 //import SignUp from "./components/SignUp/SignUp";
-import Scroll from './components/Others/ScrollBis';
+//import Scroll from './components/Others/ScrollBis';
 //import Routes from "./Routes/routes";
 //import { Router } from "react-router-dom";
 
@@ -48,7 +48,7 @@ export default class App extends Component {
 
         this.setState({ memes: [...nuevaLista] });
       });
-      setDisabled;
+      //setDisabled;
     }
   }
 

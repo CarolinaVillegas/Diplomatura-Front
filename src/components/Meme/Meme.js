@@ -30,7 +30,7 @@ export default function Meme({
               className="botonesLike"
               //disabled={false}
               onClick={() => addVoteHandler(meme)}
-            ><IoIosThumbsUp className="dedoLike"/>
+            ><IoIosThumbsUp className="thumbLike"/>
               Like
             </Button>
             <Button
@@ -39,7 +39,7 @@ export default function Meme({
               //disabled={false}
               onClick={() => removeVoteHandler(meme)}
             >
-              <IoIosThumbsDown className="dedoDislike" /> Dislike
+              <IoIosThumbsDown className="thumbDislike" /> Dislike
             </Button>
             <Button
               variant="light"
