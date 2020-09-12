@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import moment from 'moment';
 
 import {
   Col,
@@ -11,8 +12,11 @@ import {
 
 import './Comments.css';
 
+moment().format();
+
 export default function Comments({ listOfComments, memeID }) {
   const [comment, setComment] = useState('');
+  const [comments, setComments] = useState(listOfComments);
 
   function handleSave(event) {
     event.preventDefault();
@@ -26,7 +30,10 @@ export default function Comments({ listOfComments, memeID }) {
       body: JSON.stringify({ message: comment }),
     })
       .then((data) => data.json())
-      .then((response) => console.log(response))
+      .then((newComment) => {
+        setComments([newComment.comment, ...listOfComments]);
+        setComment('');
+      })
       .catch((e) => console.log(e));
   }
 
@@ -65,14 +72,14 @@ export default function Comments({ listOfComments, memeID }) {
     </Card> */}
       </Col>
       <Col>
-        {listOfComments.map((comment, i) => {
+        {comments.map((comment, i) => {
           return (
-            <div key={i}>
-              <h2>
-                {comment.owner} : {comment.message}
-              </h2>
-              <h3>{comment.createdAt}</h3>
-            </div>
+            <Card key={i} bg={'dark'} text="light">
+              <Card.Text>{comment.message}</Card.Text>
+              <Card.Header>
+                {comment.owner} @ {moment(comment.createdAt).fromNow()}
+              </Card.Header>
+            </Card>
           );
         })}
       </Col>

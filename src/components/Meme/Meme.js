@@ -11,7 +11,7 @@ export default function Meme({
   showCommentHandler,
 }) {
   const data = memes.map((meme, i) => (
-    <Col  key={i}>
+    <Col key={i}>
       <Card className="cardPrimary">
         <Card.Title className="cardTitle">{meme.title}</Card.Title>
         <Card.Subtitle className="cardSubtitle">{meme.category}</Card.Subtitle>
@@ -30,7 +30,8 @@ export default function Meme({
               className="botonesLike"
               //disabled={false}
               onClick={() => addVoteHandler(meme)}
-            ><IoIosThumbsUp className="thumbLike"/>
+            >
+              <IoIosThumbsUp className="thumbLike" />
               Like
             </Button>
             <Button
@@ -54,7 +55,10 @@ export default function Meme({
             </Button>
           </Card.Footer>
           {meme.showComment ? (
-            <Comments listOfComments={meme.comentarios} memeID={meme._id} />
+            <Comments
+              listOfComments={meme.comentarios.reverse()}
+              memeID={meme._id}
+            />
           ) : (
             <br />
           )}
