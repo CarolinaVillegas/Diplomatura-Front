@@ -1,38 +1,26 @@
 import React, { Component } from 'react';
-import { Button, Container, Row, Col } from 'react-bootstrap';
+import { Container, Row, Col } from 'react-bootstrap';
 import './App.css';
 
 // subcomponents
-//import CreateMeme from "./components/CreateMeme";
 import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
 import Meme from './components/Meme/Meme';
 import Menu from './components/Menu/Menu';
-//import Login from "./components/Login/Login";
-//import SignUp from "./components/SignUp/SignUp";
-//import Scroll from './components/Others/ScrollBis';
-//import Routes from "./Routes/routes";
-//import { Router } from "react-router-dom";
 
 export default class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
       memes: [],
-      currentUser: null,
       userIsLoggedIn: false,
-      disabled:true,
+      disabled: true,
     };
   }
 
   addVote(meme) {
-        //const [disabled, setDisabled] = { disabled: true };
-          //const [show, setShow] = useState(false);
-         // const [disabled, setDisabled] =  [disabled== true ] ;
-    // const handleDisabled = () => setDisabled(true);
     if (localStorage.getItem('email')) {
-      const nuevaLista = [...this.state.memes]; // copia de los datos
-      const [disabled, setDisabled] =  [disabled== true ] ;
+      const nuevaLista = [...this.state.memes];
       const indice = nuevaLista.findIndex((m) => m._id === meme._id);
 
       fetch('/memes/' + nuevaLista[indice]._id + '?increase=true', {
@@ -48,14 +36,12 @@ export default class App extends Component {
 
         this.setState({ memes: [...nuevaLista] });
       });
-      //setDisabled;
     }
   }
 
   removeVote(meme) {
     if (localStorage.getItem('email')) {
-      const nuevaLista = [...this.state.memes]; // copia de los datos
-
+      const nuevaLista = [...this.state.memes];
       const indice = nuevaLista.findIndex((m) => m._id === meme._id);
 
       fetch('/memes/' + nuevaLista[indice]._id + '?increase=false', {
@@ -75,8 +61,7 @@ export default class App extends Component {
   }
 
   submitComment(meme) {
-    const nuevaLista = [...this.state.memes]; // copia de los datos
-
+    const nuevaLista = [...this.state.memes];
     const indice = nuevaLista.findIndex((m) => m._id === meme._id);
 
     fetch('/comments/' + nuevaLista[indice]._id + '?increase=false', {
@@ -95,8 +80,7 @@ export default class App extends Component {
   }
 
   showComment(meme) {
-    const nuevaLista = [...this.state.memes]; // copia de los datos
-
+    const nuevaLista = [...this.state.memes];
     const indice = nuevaLista.findIndex((m) => m._id === meme._id);
 
     nuevaLista[indice].showComment = !nuevaLista[indice].showComment;
@@ -132,7 +116,6 @@ export default class App extends Component {
               comentarios: c[i],
               ...fm,
             }));
-
             this.setState({ memes: [...wcomments] });
           })
         );
@@ -151,53 +134,48 @@ export default class App extends Component {
   render() {
     return (
       <div className="App">
-        <div className = "area">
-        <ul class="circles">
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-            </ul>
-        <meta
-          name="viewport"
-          content="width=device-width, initial-scale=1"
-        ></meta>
-        <Header
-          userLoggedIn={this.state.userIsLoggedIn}
-          toggleStatus={this.toggleUserStatus.bind(this)}
-        />
-        <Container fluid >
-        
-          <Row>
-            <Col xs={1} md={4} className="menuBox">
-              <Menu
-                filterMemes={this.showMemesByCategory}
-                userLoggedIn={this.state.userIsLoggedIn}
-              />
-            </Col>
-            <Col xs={4} sm={5} md={8}>
-              <article className="memePosition">
-                <Meme
-                  memes={this.state.memes}
-                  addVoteHandler={this.addVote.bind(this)}
-                  removeVoteHandler={this.removeVote.bind(this)}
-                  showCommentHandler={this.showComment.bind(this)}
+        <div className="area">
+          <ul class="circles">
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+          </ul>
+          <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1"
+          ></meta>
+          <Header
+            userLoggedIn={this.state.userIsLoggedIn}
+            toggleStatus={this.toggleUserStatus.bind(this)}
+          />
+          <Container fluid>
+            <Row>
+              <Col xs={1} md={4} className="menuBox">
+                <Menu
+                  filterMemes={this.showMemesByCategory}
+                  userLoggedIn={this.state.userIsLoggedIn}
                 />
-              </article>
-            </Col>
-            
-        {/* <Col md={1}>
-              <Scroll></Scroll>
-            </Col>*/}
-          </Row>
-        </Container>
-        <Footer></Footer>
+              </Col>
+              <Col xs={4} sm={5} md={8}>
+                <article className="memePosition">
+                  <Meme
+                    memes={this.state.memes}
+                    addVoteHandler={this.addVote.bind(this)}
+                    removeVoteHandler={this.removeVote.bind(this)}
+                    showCommentHandler={this.showComment.bind(this)}
+                  />
+                </article>
+              </Col>
+            </Row>
+          </Container>
+          <Footer></Footer>
         </div>
       </div>
     );
