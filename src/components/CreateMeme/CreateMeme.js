@@ -1,28 +1,19 @@
 import React, { useState } from 'react';
 import {
-  Dropdown,
   Form,
   Button,
   FormGroup,
   FormControl,
   Card,
   Modal,
-  Label,
 } from 'react-bootstrap';
-import { WiCloudUp } from 'react-icons/wi';
 
 import './CreateMeme.css';
-//import Upload from "./Upload.js";
-//import GoogleLogin from "react-google-login";
-//import LogInG from "./components/LogIng";
 
-let login;
-
-export default function CreateMeme({}) {
+export default function CreateMeme() {
   const [title, setTitle] = useState('');
   const [category, setCategory] = useState('general');
   const [show, setShow] = useState(false);
-  const [badLogin, setBadLogin] = useState(false);
   // const forceUpdate = React.useCallback(() => updateState({}), []);
 
   const handleClose = () => setShow(false);
@@ -61,7 +52,7 @@ export default function CreateMeme({}) {
           <Modal.Title>Upload your own meme!</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <Form className="CreateMeme-Form" /*onSubmit={logIn}*/>
+          <Form className="CreateMeme-Form">
             <Card.Title>Title</Card.Title>
             <FormGroup controlId="title">
               <FormControl
@@ -87,16 +78,11 @@ export default function CreateMeme({}) {
               </Form.Control>
             </Form.Group>
             <Card.Title>Image</Card.Title>
-            <Form.File
-              id="image-file"
-              label="Seleccionar imagen de formato .jpg, .jpeg, .png o .GIF"
-              custom
-            />
+            <Form.File id="image-file" label="Select your image here" custom />
 
             <Modal.Footer>
               <Button onClick={handleSave} type="submit" block>
                 Upload
-                {/*<WiCloudUp className="uploadImg" size={30} align="center"/>*/}
               </Button>
             </Modal.Footer>
           </Form>

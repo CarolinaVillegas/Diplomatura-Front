@@ -1,12 +1,11 @@
 import React from 'react';
 import './Header.css';
-import { Dropdown, Button, Col, Row, Container } from 'react-bootstrap';
+import { Dropdown, Col, Row, Container } from 'react-bootstrap';
 import { FaUserCircle } from 'react-icons/fa';
 import icon from '../../pictures/memeghost2.png';
-import userImg from '../../pictures/user.png';
 import Login from '../Login/Login';
 import Logout from '../Logout/Logout';
-import SignUp2 from '../SignUp/SignUp2';
+import SignUp from '../SignUp/SignUp';
 import CreateMeme from '../CreateMeme/CreateMeme';
 
 export default function Header({ userLoggedIn, toggleStatus }) {
@@ -59,12 +58,7 @@ export default function Header({ userLoggedIn, toggleStatus }) {
                         )*/}
                   </Dropdown.Toggle>
                   <Dropdown.Menu>
-                    <Dropdown.Item href="#/MyProfile">
-                      My Profile
-                      {/*localStorage
-                        .getItem("email")
-                      */}
-                    </Dropdown.Item>
+                    <Dropdown.Item href="#/MyProfile">My Profile</Dropdown.Item>
                     <Dropdown.Item href="#/Settings">Settings</Dropdown.Item>
 
                     <Dropdown.Divider />
@@ -102,7 +96,7 @@ export default function Header({ userLoggedIn, toggleStatus }) {
                 <Login setLogin={toggleStatus}></Login>
               </Col>
               <Col md={1}>
-                <SignUp2></SignUp2>
+                <SignUp />
               </Col>
             </React.Fragment>
           )}
