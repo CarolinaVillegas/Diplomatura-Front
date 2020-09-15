@@ -1,24 +1,24 @@
-import React, { Component } from "react";
-import { validateFields } from "../Others/Validation";
-import { Button, FormGroup, FormControl, Modal } from "react-bootstrap";
-import classnames from "classnames";
-import "./SignUp.css";
+import React, { Component } from 'react';
+import { validateFields } from '../Others/Validation';
+import { Button, FormGroup, FormControl, Modal } from 'react-bootstrap';
+import classnames from 'classnames';
+import './SignUp.css';
 
 const initialState = {
   name: {
-    value: "",
+    value: '',
     validateOnChange: false,
-    error: "",
+    error: '',
   },
   email: {
-    value: "",
+    value: '',
     validateOnChange: false,
-    error: "",
+    error: '',
   },
   password: {
-    value: "",
+    value: '',
     validateOnChange: false,
-    error: "",
+    error: '',
   },
   submitCalled: false,
   allFieldsValidated: false,
@@ -42,7 +42,7 @@ class SignUp2 extends Component {
     const field = evt.target.name;
 
     if (
-      this.state[field]["validateOnChange"] === false &&
+      this.state[field]['validateOnChange'] === false &&
       this.state.submitCalled === false
     ) {
       this.setState((state) => ({
@@ -63,7 +63,7 @@ class SignUp2 extends Component {
       [field]: {
         ...state[field],
         value: fieldVal,
-        error: state[field]["validateOnChange"] ? validationFunc(fieldVal) : "",
+        error: state[field]['validateOnChange'] ? validationFunc(fieldVal) : '',
       },
     }));
   }
@@ -77,18 +77,15 @@ class SignUp2 extends Component {
     const passwordError = validateFields.validatePassword(password.value);
 
     if ([nameError, emailError, passwordError].every((e) => e === false)) {
-      // no errors submit the form
-      console.log("success");
-
-      fetch("/users", {
-        method: "POST",
+      fetch('/users', {
+        method: 'POST',
         body: JSON.stringify({
           name: name.value,
           email: email.value,
           password: password.value,
         }),
         headers: {
-          "Content-Type": "application/json",
+          'Content-Type': 'application/json',
         },
       })
         .then((response) => {
@@ -107,9 +104,9 @@ class SignUp2 extends Component {
         })
         .then((userData) => {
           if (userData) {
-            localStorage.setItem("name", userData.user.name);
-            localStorage.setItem("email", userData.user.email);
-            localStorage.setItem("token", userData.token);
+            localStorage.setItem('name', userData.user.name);
+            localStorage.setItem('email', userData.user.email);
+            localStorage.setItem('token', userData.token);
           }
         });
     } else {
@@ -162,7 +159,7 @@ class SignUp2 extends Component {
             )}
 
             {/* Form Starts Here */}
-            <form className = "form" onSubmit={(evt) => this.handleSubmit(evt)}>
+            <form className="form" onSubmit={(evt) => this.handleSubmit(evt)}>
               {/* Name field */}
               <FormGroup>
                 <label>Name</label>
@@ -172,9 +169,9 @@ class SignUp2 extends Component {
                   value={name.value}
                   placeholder="Enter your name"
                   className={classnames(
-                    "form-control",
-                    { "is-valid": name.error === false },
-                    { "is-invalid": name.error }
+                    'form-control',
+                    { 'is-valid': name.error === false },
+                    { 'is-invalid': name.error }
                   )}
                   onChange={(evt) =>
                     this.handleChange(validateFields.validateName, evt)
@@ -194,9 +191,9 @@ class SignUp2 extends Component {
                   value={email.value}
                   placeholder="Enter your email"
                   className={classnames(
-                    "form-control",
-                    { "is-valid": email.error === false },
-                    { "is-invalid": email.error }
+                    'form-control',
+                    { 'is-valid': email.error === false },
+                    { 'is-invalid': email.error }
                   )}
                   onChange={(evt) =>
                     this.handleChange(validateFields.validateEmail, evt)
@@ -214,12 +211,13 @@ class SignUp2 extends Component {
                 <input
                   type="password"
                   name="password"
+                  autoComplete="on"
                   value={password.value}
                   placeholder="Enter your password"
                   className={classnames(
-                    "form-control",
-                    { "is-valid": password.error === false },
-                    { "is-invalid": password.error }
+                    'form-control',
+                    { 'is-valid': password.error === false },
+                    { 'is-invalid': password.error }
                   )}
                   onChange={(evt) =>
                     this.handleChange(validateFields.validatePassword, evt)

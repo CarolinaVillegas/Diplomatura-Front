@@ -135,7 +135,7 @@ export default class App extends Component {
     return (
       <div className="App">
         <div className="area">
-          <ul class="circles">
+          <ul className="circles">
             <li></li>
             <li></li>
             <li></li>
