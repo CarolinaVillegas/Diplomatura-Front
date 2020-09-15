@@ -11,21 +11,13 @@ import CreateMeme from '../CreateMeme/CreateMeme';
 export default function Header({ userLoggedIn, toggleStatus }) {
   return (
     <header>
-      {/* <nav className="navbar navbar-dark bg-dark">
-        <a className="navbar-brand" href="/">
-          Username:
-          <span className="badge badge-pill badge-light ml-2">
-            Posts: {props.userData.length}
-          </span>
-        </a>
-      </nav> */}
       <Container fluid>
         <Row>
           {userLoggedIn ? (
             <React.Fragment>
               <Col className="titleAndIcon">
                 <a href="/" style={{ textDecoration: 'none' }}>
-                  <div class="animate six">
+                  <div className="animate six">
                     <span>M</span>
                     <span>e</span>
                     <span>m</span>
@@ -50,12 +42,6 @@ export default function Header({ userLoggedIn, toggleStatus }) {
                     size="sm"
                   >
                     <FaUserCircle className="iconoUser" />
-                    {/*localStorage
-                        .getItem("email")
-                        .substring(
-                          0,
-                          localStorage.getItem("email").lastIndexOf("@")
-                        )*/}
                   </Dropdown.Toggle>
                   <Dropdown.Menu>
                     <Dropdown.Item href="#/MyProfile">My Profile</Dropdown.Item>

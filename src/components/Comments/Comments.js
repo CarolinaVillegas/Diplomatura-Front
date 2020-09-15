@@ -12,8 +12,6 @@ import {
 
 import './Comments.css';
 
-moment().format();
-
 export default function Comments({ listOfComments, memeID }) {
   const [comment, setComment] = useState('');
   const [comments, setComments] = useState(listOfComments);
@@ -40,14 +38,6 @@ export default function Comments({ listOfComments, memeID }) {
   return (
     <div className="comments">
       <Col sm={6} md={8}>
-        {/* <Card style={{ width: "35rem" }} className="cardPrimary">
-      <Card.Title className="cardTitle">{meme.title}</Card.Title>
-      <Card.Subtitle className="cardSubtitle">{meme.category}</Card.Subtitle>
-      <Card.Img src={meme.img_source} alt={meme.title} loading="lazy" />
-      <Card.Body>
-        Puntos: {meme.points} <br />
-        Comentarios: {meme.comment_counter}
-        <Card.Footer> */}
         <Form.Group controlId="exampleForm.ControlTextarea1">
           <Form.Label>Leave your comment</Form.Label>
           <InputGroup>
@@ -66,10 +56,6 @@ export default function Comments({ listOfComments, memeID }) {
             />
           </InputGroup>
         </Form.Group>
-
-        {/* </Card.Footer>
-      </Card.Body>
-    </Card> */}
       </Col>
       <Col>
         {comments.map((comment, i) => {

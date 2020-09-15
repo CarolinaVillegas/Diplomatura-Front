@@ -87,25 +87,41 @@ class SignUp extends Component {
             this.setState({ ...initialState, allFieldsValidated: true });
 
             this.showAllFieldsValidated();
-            //   this.setState({ show: false })
 
             // HTTP status code between 200-299
             return response.json();
           } else {
-            this.setState({ ...initialState, allFieldsValidated: false });
-
-            return null;
+            return response.status;
           }
         })
         .then((userData) => {
-          if (userData) {
+          if (userData !== 500) {
             localStorage.setItem('name', userData.user.name);
             localStorage.setItem('email', userData.user.email);
             localStorage.setItem('token', userData.token);
+
+            window.location.reload();
+          } else {
+            this.setState((state) => ({
+              name: {
+                ...state.name,
+                validateOnChange: true,
+                error: emailError,
+              },
+              email: {
+                ...state.email,
+                validateOnChange: true,
+                error: true,
+              },
+              password: {
+                ...state.password,
+                validateOnChange: true,
+                error: passwordError,
+              },
+            }));
           }
         });
     } else {
-      // update the state with errors
       this.setState((state) => ({
         name: {
           ...state.name,

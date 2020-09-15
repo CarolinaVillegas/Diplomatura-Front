@@ -84,7 +84,6 @@ export default function Login({ setLogin }) {
             </FormGroup>
             <Card.Title>Enter your password</Card.Title>
             <FormGroup controlId="password">
-              {/* <ControlLabel>Password</ControlLabel> */}
               <FormControl
                 autoComplete="current-password"
                 value={password}
@@ -107,7 +106,6 @@ export default function Login({ setLogin }) {
               >
                 Log in
               </Button>
-              <Button>Sign in with Google</Button>
             </Modal.Footer>
           </Form>
         </Modal.Body>
